@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
     <title>Vizibo Events Solutions - Be Visible</title>
     <link
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -1238,6 +1239,8 @@
         }
       }
 
+      
+
       /* Scroll reveal animation */
       .reveal {
         opacity: 0;
@@ -1359,9 +1362,71 @@
   min-height: 100%;
 }
 
+/* Extra mobile tweaks */
+@media (max-width: 480px) {
+  .hero h1 {
+    font-size: 1.5rem;
+  }
+  .section-header h2 {
+    font-size: 2rem;
+  }
+  .projects-vertical-title {
+    font-size: 2rem;
+    min-width: 80px;
+    padding: 0.5rem;
+  }
+  .logo-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on small screens */
+    gap: 1rem;
+  }
+  .about-image img {
+    width: 120px;
+  }
+  .extra-card {
+    padding: 1rem;
+    grid-template-columns: 1fr; /* Stack in mobile */
+  }
+  .extra-images {
+    grid-template-columns: 1fr 1fr; /* 2 columns for images */
+  }
+  .footer {
+    padding: 20px 0;
+  }
+  .footer-col h4 {
+    font-size: 1rem;
+  }
+}
 
+/* Hide vertical labels on very small screens if needed */
+@media (max-width: 400px) {
+  .vertical-label, .projects-vertical-title {
+    display: none;
+  }
+}
 
+/* Fix solution card text overflow */
+.solution-card {
+  min-height: 220px;
+  height: auto;
+  padding-bottom: 2rem; /* Add space for overlay if needed */
+  overflow: visible;
+}
 
+/* Responsive adjustments for mobile */
+@media (max-width: 480px) {
+  .solution-card {
+    min-height: 160px;
+    padding: 1rem 0.5rem;
+  }
+  .solution-content h3,
+  .solution-title h3 {
+    font-size: 1rem;
+  }
+  .solution-content p,
+  .solution-title p {
+    font-size: 0.88rem;
+  }
+}
 
     </style>
   </head>
