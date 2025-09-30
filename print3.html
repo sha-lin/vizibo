@@ -324,6 +324,181 @@
         width: 100%;
       }
     }
+
+    .footer {
+        /* background-color: #babbc0; */
+        padding: 70px 0;
+        margin-top: 50px; /* Added margin for space */
+        border-top: 2px solid rgba(255, 255, 255, 0.2); /* Added separator line */
+        
+      }
+
+      .footer .row {
+  display: flex;
+  justify-content: center;   /* centers horizontally */
+  align-items: flex-start;   /* keep top aligned */
+  text-align: center;        /* center text inside columns */
+  gap: 3rem;                 /* spacing between columns */
+}
+      .footer-col {
+        width: 25%;
+        padding: 0 15px;
+      }
+      .footer-col h4 {
+        font-size: 18px;
+        color: #ffffff;
+        text-transform: capitalize;
+        margin-bottom: 35px;
+        font-weight: 500;
+        position: relative;
+      }
+      .footer-col h4::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -10px;
+        background-color: #e91e63;
+        height: 2px;
+        box-sizing: border-box;
+        width: 50px;
+      }
+      .footer-col ul li:not(:last-child) {
+        margin-bottom: 10px;
+      }
+      .footer-col ul li a {
+        font-size: 16px;
+        text-transform: capitalize;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: 300;
+        color: #bbbbbb;
+        display: block;
+        transition: all 0.3s ease;
+      }
+      .footer-col ul li a:hover {
+        color: #ffffff;
+        padding-left: 8px;
+      }
+      .footer-col .social-links a {
+        display: inline-block;
+        height: 40px;
+        width: 40px;
+        background-color: rgba(255, 255, 255, 0.2);
+        margin: 0 10px 10px 0;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 50%;
+        color: #ffffff;
+        transition: all 0.5s ease;
+      }
+      .footer-col .social-links a:hover {
+        color: #24262b;
+        background-color: #ffffff;
+      }
+
+      /*responsive*/
+      @media (max-width: 767px) {
+        .footer-col {
+          width: 50%;
+          margin-bottom: 30px;
+        }
+      }
+      @media (max-width: 574px) {
+        .footer-col {
+          width: 100%;
+        }
+      }
+      /* Navbar Base */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1rem 0;
+  background-color: #0423c2;   /* solid blue */
+  transition: all 0.3s ease;
+}
+
+/* Navbar when scrolled */
+.navbar.scrolled {
+  padding: 0.5rem 0;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar inner container */
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 2rem;
+}
+
+/* Logo */
+.logo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+.logo span {
+  color: #ff6b35; /* orange accent */
+}
+
+/* Nav links */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover {
+  color: #ff6b35; /* orange hover for visibility */
+}
+
+/* Mobile menu (hamburger) */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+/* Responsive (mobile) */
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex; /* show hamburger */
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: #1a1a2e;
+    flex-direction: column;
+    padding: 1rem 0;
+  }
+
+  .nav-links.active {
+    display: flex; /* show links when menu toggled */
+  }
+}
+
+
   </style>
 </head>
 <body>
@@ -471,23 +646,35 @@
             <li><a href="#">Contact Us</a></li>
           </ul>
         </div>
+        <style>
+          .footer-col{
+            color: #fff;
+          }
+        </style>
         <div class="footer-col">
-          <h4>Location</h4>
-          <ul>
-            <li><a href="#">📍 07 Mpaka Rd, Nairobi</a></li>
-            <li><a href="tel:+254795332766">📞 +254 795 332 766</a></li>
-            <li><a href="mailto:query@printduka.co.ke">✉️ query@printduka.co.ke</a></li>
-          </ul>
-        </div>
+              <h4>Location</h4>
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>07 Mpaka Rd, Nairobi</span> <br><br>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>+254 795 332 766</span><br><br>
+              </div>
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>query@printduka.co.ke</span>
+              </div>
+            </div>
         <div class="footer-col">
-          <h4>Follow Us</h4>
-          <div class="social-links">
-            <a href="#" aria-label="Facebook">f</a>
-            <a href="#" aria-label="Twitter">𝕏</a>
-            <a href="#" aria-label="Instagram">📷</a>
-            <a href="#" aria-label="LinkedIn">in</a>
-          </div>
-        </div>
+              <h4>follow us</h4>
+              <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
       </div>
       <div class="footer-bottom">
         <p>&copy; 2025 Vizibo Events Solutions by Print Duka. All rights reserved.</p>
