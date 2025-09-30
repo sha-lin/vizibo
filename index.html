@@ -1375,26 +1375,11 @@
     min-width: 80px;
     padding: 0.5rem;
   }
-  .logo-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns on small screens */
+  /* .logo-grid {
+    grid-template-columns: repeat(2, 1fr); 
     gap: 1rem;
-  }
-  @media (max-width: 992px) {
-  .logo-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 per row on tablets */
-  }
-}
-
-@media (max-width: 600px) {
-  .logo-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 per row on phones */
-    gap: 1rem;
-  }
-  .logo-item img {
-    max-width: 90px;
-    max-height: 50px;
-  }
-}
+  } */
+  
 
   .about-image img {
     width: 120px;
@@ -1884,11 +1869,27 @@
         <style>
           .logo-grid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr); /* 5 columns */
+  grid-template-columns: repeat(5, 1fr); 
   gap: 2rem;
   justify-items: center;
   align-items: center;
   margin-top: 2rem;
+}
+@media (max-width: 992px) {
+  .logo-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 per row on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .logo-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on phones */
+    gap: 1rem;
+  }
+  .logo-item img {
+    max-width: 90px;
+    max-height: 50px;
+  }
 }
 
 .logo-item {
@@ -1914,6 +1915,7 @@
   background-color: #f9f9f9; /* Light grey background */
   padding: 4rem 0; /* Increased padding for more space */
   text-align: center;
+  color: #333;
 }
 
         </style>
