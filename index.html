@@ -1379,6 +1379,23 @@
     grid-template-columns: repeat(2, 1fr); /* 2 columns on small screens */
     gap: 1rem;
   }
+  @media (max-width: 992px) {
+  .logo-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 per row on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .logo-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on phones */
+    gap: 1rem;
+  }
+  .logo-item img {
+    max-width: 90px;
+    max-height: 50px;
+  }
+}
+
   .about-image img {
     width: 120px;
   }
@@ -1405,6 +1422,7 @@
 }
 
 /* Fix solution card text overflow */
+
 .solution-card {
   min-height: 220px;
   height: auto;
@@ -1426,6 +1444,17 @@
   .solution-title p {
     font-size: 0.88rem;
   }
+}
+@media (max-width: 768px){
+  .remaining-cards {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+}
+.solution-card {
+  height: auto; /* let cards expand naturally */
+}
+
+
 }
 
     </style>
