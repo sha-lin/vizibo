@@ -31,18 +31,21 @@
 
     /* ==================== NAVBAR ==================== */
     .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      z-index: 1000;
-      padding: 1rem 0;
-      transition: all 0.3s ease;
-      background-color: #140599;
-    }
+        max-height: 70px;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 1rem 0;
+        transition: all 0.3s ease;
+        background: none;
+        display: flex;
+        justify-content: space-between;
+      }
     .navbar.scrolled {
       padding: 0.5rem 0;
-      background: linear-gradient(135deg, #1a1a2e, #16213e);
-      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+      /* background: linear-gradient(135deg, #1a1a2e, #16213e); */
+      /* box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); */
     }
     .nav-container {
       max-width: 1200px;
@@ -419,6 +422,117 @@
           width: 100%;
         }
       }
+
+      /* --- FOOTER STYLE TO MATCH INDEX.HTML AND SCREENS3 --- */
+.footer {
+  background-color: #0423c2;
+  padding: 70px 0 30px;
+  margin-top: 50px;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.footer .row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: left;
+  gap: 3rem;
+}
+
+.footer-col {
+  width: 25%;
+  padding: 0 15px;
+  color: #fff;
+}
+
+.footer-col h4 {
+  font-size: 18px;
+  color: #ffffff;
+  text-transform: capitalize;
+  margin-bottom: 35px;
+  font-weight: 500;
+  position: relative;
+}
+
+.footer-col h4::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -10px;
+  background-color: #e91e63;
+  height: 2px;
+  box-sizing: border-box;
+  width: 50px;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li:not(:last-child) {
+  margin-bottom: 10px;
+}
+
+.footer-col ul li a {
+  font-size: 16px;
+  text-transform: capitalize;
+  color: #bbbbbb;
+  text-decoration: none;
+  font-weight: 300;
+  display: block;
+  transition: all 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+  color: #ffffff;
+  padding-left: 8px;
+}
+
+.footer-col .social-links a {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin: 0 10px 10px 0;
+  text-align: center;
+  line-height: 40px;
+  border-radius: 50%;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+
+.footer-col .social-links a:hover {
+  color: #24262b;
+  background-color: #ffffff;
+}
+
+.footer-bottom {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
+}
+
+.footer-bottom p {
+  color: #bbbbbb;
+  margin: 0;
+  font-size: 14px;
+}
+
+/* Responsive footer columns */
+@media (max-width: 767px) {
+  .footer-col {
+    width: 50%;
+    margin-bottom: 30px;
+  }
+}
+@media (max-width: 574px) {
+  .footer-col {
+    width: 100%;
+  }
+}
       /* Navbar Base */
 .navbar {
   position: fixed;
@@ -433,8 +547,8 @@
 /* Navbar when scrolled */
 .navbar.scrolled {
   padding: 0.5rem 0;
-  background: linear-gradient(135deg, #1a1a2e, #16213e);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  /* background: linear-gradient(135deg, #1a1a2e, #16213e);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); */
 }
 
 /* Navbar inner container */
@@ -509,6 +623,40 @@
   }
 }
 
+/* Make logo bigger */
+.logo img {
+  height: 200px;      /* Increase size as you like */
+  width: auto;       /* Keep aspect ratio */
+  max-width: none;   /* Prevents limiting the width */
+  object-fit: contain;
+}
+
+/* Navbar container layout */
+.nav-container {
+  display: flex;
+  justify-content: space-between; /* Logo left, nav right */
+  align-items: center;
+  padding: 0 2rem;
+}
+
+/* Prevent navbar from stretching when logo grows */
+.nav-links {
+  height: 80px;        /* Fixed height */
+  min-height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background: none;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 0;
+  flex-shrink: 0;
+}
+
 
   </style>
 </head>
@@ -516,6 +664,12 @@
 
   <!-- ==================== NAVBAR ==================== -->
   <nav class="navbar" id="navbar">
+    <div class="logo-container">
+          <!-- <img src="images/VIZIBO LOGO F1.pdf (1).png" alt=""> -->
+        <a class="logo" href="index.html"
+          ><img src="images/VIZIBO LOGO F1.pdf (1).png" alt=""/></a>
+
+      </div>
     <div class="nav-container">
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">HOME</a></li>
@@ -532,8 +686,302 @@
     </div>
   </nav>
 
+
+  <style>
+    .headline {
+      text-align: center;
+      padding: 100px 20px 40px;
+      background: #f9f9f9;
+    }
+
+    .easy-process {
+  /* padding: 100px; */
+  padding-left: 60px;
+  padding-right: 60px;
+  text-align: center;
+  font-weight: lighter;
+ 
+  align-items: center;
+  margin: auto;
+  /* width: 70%;
+  
+  padding: 50px, 0; */
+}
+.easy-process .container {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+
+.easy-process .steps {
+  display: grid;
+  /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  grid-template-rows: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: center;
+  text-align: center;
+}
+.easy-process .step {
+  text-align: center;
+  align-items: center;
+}
+.easy-process .step-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #9035ff;
+  margin-bottom: 1rem;
+}
+.easy-process .step-number img {
+  width: 100px;  /* Set consistent size */
+  height: 100px;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+
+.faq { padding: 80px 0; }
+  .faq h2 { text-align:center; font-size:2rem; color:#0b066d; margin-bottom:2rem; }
+
+  .faq-list { max-width:800px; margin:0 auto; }
+
+  /* FAQ Hover Effects */
+.faq-item {
+  border-bottom: 1px solid #e6e6e6;
+  padding: 1rem 0;
+  transition: background-color 0.3s ease;
+}
+
+.faq-item:hover {
+  background-color: #e3f2fd; /* Light blue background on hover */
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 8px;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 1.12rem;
+  font-weight: 600;
+  color: #222;
+  cursor: pointer;
+  display: block;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.faq-question:hover {
+  color: #2196f3; /* Blue text on hover */
+}
+
+.faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.6rem;
+  color: #9035ff;
+  transition: transform 0.25s ease, color 0.3s ease;
+}
+
+.faq-question:hover::after {
+  color: #2196f3; /* Blue plus sign on hover */
+}
+
+.faq-item.active .faq-question::after {
+  content: "-";
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease, padding 0.25s ease, background-color 0.3s ease;
+  padding: 0;
+  color: #555;
+  font-size: 1rem;
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  padding-top: 0.6rem;
+  background-color: #f0f8ff; /* Very light blue for answer when active */
+}
+
+  /* small responsive tweak */
+  @media (max-width:576px) {
+    .faq h2 { font-size:1.6rem; }
+    .faq-question { font-size:1rem; }
+  }
+
+      .faq {
+  padding: 80px 0;
+}
+
+.faq h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #0b066d;
+  margin-bottom: 2rem;
+}
+
+.faq-list {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  border-bottom: 1px solid #ddd;
+  padding: 1rem 0;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  padding: 0;
+}
+
+.faq-answer {
+  display: none;
+  padding-top: 0.5rem;
+  font-size: 1rem;
+  color: #555;
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+.faq-question:after {
+  content: "+";
+  float: right;
+  font-size: 1.5rem;
+  color: #9035ff;
+  transition: transform 0.3s;
+}
+
+.faq-item.active .faq-question:after {
+  content: "-";
+  transform: rotate(180deg);
+}
+/* Make container wider or full width */
+.container {
+  max-width: 1200px; /* or remove for 100% width */
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Increase base font size */
+body {
+  font-size: 18px; /* or 20px for larger text */
+}
+
+/* Optionally, increase section font sizes */
+.text-section p, .text-section ul,
+.split-section p, .split-section ul {
+  font-size: 1.15rem;
+}
+
+/* --- NAV LINKS TO THE RIGHT --- */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Push nav links to the right */
+  padding: 0 2rem;
+  width: 100%;
+}
+
+/* --- NAV LINKS STYLE (same as index.html) --- */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-left: auto;         /* Push nav links to the right */
+  align-items: center;
+  list-style: none;
+}
+
+/* --- CONTACT US BUTTON STYLE (same as index.html) --- */
+.nav-links a.button,
+.nav-links .button1 {
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  background: #4967d2;
+  color: #fff;
+  margin: 0;
+  height: auto;
+  box-shadow: none;
+  display: inline-block;
+  border: none;
+  font-weight: 500;
+  text-align: center;
+  transition: none;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100vw;
+    background: #1a1a2e;
+    flex-direction: column;
+    padding: 1rem 0;
+    z-index: 9999;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+}
+  </style>
+
+
+
+
+  <section class="headline">
+    
+    <p><i>Make Your Event Unmissable.
+From the first invite to the final photo, <br> we brand every touchpoint for a seamless, premium experience.</i></p>
+      <p><i>We design, produce, and deploy event branding across print, digital, <br>and on-screen displays—so your guests see one story everywhe</i></p>
+</section>
+
+ <section class="split-section">
+    <div class="container split-grid">
+      <div class="text-col">
+        <h2>Event Branding, Large Format Printing <br> & Digital Signage Solutions</h2>
+        <p><i>Every event tells a story, the moment guests walk in, the atmosphere, the visuals, the branded details that make them feel part of something bigger. At Visibo, we design and execute that story to be bold, seamless, and unforgettable.</i></p>
+        <p><i>From corporate summits that demand authority to product launches that spark excitement, we create immersive brand worlds where every print element and digital screen work together.</i> </p>
+      </div>
+      <div class="image-col">
+        <img src="https://plus.unsplash.com/premium_photo-1752230474021-5749c334925a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8RXZlbnQlMjBCcmFuZGluZyUyQyUyMExhcmdlJTIwRm9ybWF0JTIwUHJpbnRpbmclMjAlMjYlMjBEaWdpdGFsJTIwU2lnbmFnZSUyMFNvbHV0aW9uc3xlbnwwfHwwfHx8MA%3D%3D" alt="">
+      </div>
+    </div>
+  </section>
+  <style>
+    .image-col img {
+      background: transparent;
+      box-shadow: none;
+    }
+  </style>
+
   <!-- ==================== PROCESS ==================== -->
-  <section class="process-section">
+  <!-- <section class="process-section">
     <div class="container">
       <div class="steps-grid">
         <div class="step">
@@ -558,31 +1006,129 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- ==================== STRATEGY ==================== -->
   <section class="split-section">
     <div class="container split-grid">
       <div class="text-col">
-        <h2>Strategy</h2>
+        <h2>What We Brand</h2>
         <ul>
-          <li>Theme development</li>
-          <li>Venue & vendor sourcing</li>
-          <li>Programming strategy</li>
-          <li>Talent selection</li>
-          <li>Creative direction</li>
-          <li>Engagement & activations</li>
-          <li>Social strategy</li>
+          <li>Venue & Stage: main backdrops, step-and-repeat walls, stage skirting, lectern skins, side banners</li>
+          <li>Wayfinding & Spaces: directional signage, zone IDs, floor decals, registration desks, help desks</li>
+          <li>Attendee Items: badges, lanyards, wristbands, tote bags, programs, menu boards</li>
+          <li>Digital & Screens: LED walls, kiosks, touch screens, digital agendas, countdowns, lower-thirds, sponsor loops</li>
+          <li>Photo & Social: media walls, photo booths, branded frames, AR filters, QR landing pages</li>
+          <li>Experiential Touchpoints: demo pods, product corners, interactive zones, expo booths</li>
+          
         </ul>
       </div>
       <div class="image-col">
-        <img src="https://meetingtomorrow.com/wp-content/uploads/2024/07/creative-strategy-500.jpg" alt="Strategy" />
+        <img src="https://media.istockphoto.com/id/1481754205/photo/media-and-journalism-concept.webp?a=1&b=1&s=612x612&w=0&k=20&c=62oPokrD_Iur3E6qSRPkur9p144FBlffbujyKvU_7QA=" alt="">
       </div>
     </div>
   </section>
 
+
+  <section class="easy-process">
+  <div class="container">
+    <h2>How It Works</h2> <br><br>
+    <div class="steps">
+      <div class="step">
+        <div class="step-number"><img src="https://meetingtomorrow.com/wp-content/uploads/2022/01/calendar-rental-length-150x150.png" alt=""></div>
+        <h3>1. Brief & Brand Intake</h3>
+        <p>objectives, audience, venue plan, sponsors.</p>
+      </div>
+      <div class="step">
+        <div class="step-number"><img src="https://meetingtomorrow.com/wp-content/uploads/2024/12/Customize-Process-Icon-100x100-1.png" alt=""></div>
+        <h3>2. Concept & Key Visual</h3>
+        <p> 2–3 routes; pick one and refine.</p>
+      </div>
+      <div class="step">
+        <div class="step-number"><img src="https://meetingtomorrow.com/wp-content/uploads/2021/11/laptp-lease-process-fast-delivery.png" alt=""></div>
+        <h3>3. Rollout</h3>
+        <p>adapt to screens, signage, print, digital.</p>
+      </div>
+      <div class="step">
+        <div class="step-number"><img src="https://meetingtomorrow.com/wp-content/uploads/2024/08/Set-Up-Easy-Process.png" alt=""></div>
+        <h3>4. Pre-flight & Production</h3>
+        <p>print specs, color proofs, file QC.</p>
+      </div>
+      <div class="step">
+        <div class="step-number"><img src="https://meetingtomorrow.com/wp-content/uploads/2024/08/Set-Up-Easy-Process.png" alt=""></div>
+        <h3>5. Deploy</h3>
+        <p>Install, screen content load, event-day checks.</p>
+      </div>
+      <div class="step">
+        <div class="step-number"><img src="https://meetingtomorrow.com/wp-content/uploads/2024/08/Set-Up-Easy-Process.png" alt=""></div>
+        <h3>6. Post-Event </h3>
+        <p>media wall, thank-you creatives, impact deck.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="divider-dots">
+  <div class="dots"></div>
+</section>
+
+<!-- DIGITAL SIGNAGE RENTAL FAQ -->
+
+<!-- DIGITAL SIGNAGE RENTAL FAQ (replace existing FAQ block) -->
+<section class="faq">
+  <div class="container">
+    <h2>FAQ</h2>
+
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq1" id="faq1-btn">
+          Can you custom-brand our kiosks and screens?
+        </button>
+        <div id="faq1" class="faq-answer" role="region" aria-labelledby="faq1-btn">
+          <p>
+            Yes. We design and print vinyl wraps and create on-screen content to match—registration UIs, agendas, sponsor loops, and more.
+
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq2" id="faq2-btn">
+          Do you handle installation?
+        </button>
+        <div id="faq2" class="faq-answer" role="region" aria-labelledby="faq2-btn">
+          <p>
+            Yes. We can produce and install, or work with your venue contractor using our install maps.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq3" id="faq3-btn">
+We have no brand—can you create one just for the event?        </button>
+        <div id="faq3" class="faq-answer" role="region" aria-labelledby="faq3-btn">
+          <p>
+Absolutely. We’ll craft a mini-identity (colors, type, patterns) that fits your theme.
+          </p>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq4" id="faq4-btn">
+Can sponsors be integrated cleanly?        </button>
+        <div id="faq4" class="faq-answer" role="region" aria-labelledby="faq4-btn">
+          <p>
+Yes—tiered templates keep sponsor placement consistent and elegant.          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
   <!-- ==================== DESIGN ==================== -->
-  <section class="split-section alt">
+  <!-- <section class="split-section alt">
     <div class="container split-grid">
       <div class="image-col">
         <img src="https://meetingtomorrow.com/wp-content/uploads/2024/07/creative-design-500.jpg" alt="Design" />
@@ -602,10 +1148,10 @@
         </ul>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- ==================== CONTENT ==================== -->
-  <section class="split-section">
+  <!-- <section class="split-section">
     <div class="container split-grid">
       <div class="text-col">
         <h2>Content</h2>
@@ -623,7 +1169,7 @@
         <img src="https://meetingtomorrow.com/wp-content/uploads/2024/07/creative-content-500.jpg" alt="Content" />
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- ==================== TESTIMONIAL ==================== -->
   <section class="testimonial">
@@ -638,9 +1184,8 @@
   <!-- ==================== CTA ==================== -->
   <section class="cta-section" id="contact">
     <div class="container">
-      <h2>Let's Get Started</h2>
-      <p>Schedule a call with our team to begin your event branding journey.</p>
-      <a href="contact.html" class="btn-primary">Schedule a Call</a>
+      <h2>Ready to brand your event?</h2>
+      <a href="" class="btn-primary">Get A Quote</a>
     </div>
   </section>
 
@@ -657,11 +1202,11 @@
             <li><a href="#">Contact Us</a></li>
           </ul>
         </div>
-        <style>
+        <!-- <style>
           .footer-col{
             color: #fff;
           }
-        </style>
+        </style> -->
         <div class="footer-col">
               <h4>Location</h4>
               <div class="contact-item">
@@ -710,6 +1255,54 @@
       navbar.classList.remove('scrolled');
     }
   });
+
+  document.addEventListener('DOMContentLoaded', function () {
+    const items = document.querySelectorAll('.faq-item');
+    const buttons = document.querySelectorAll('.faq-question');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', function (e) {
+        // prevent default just in case (also protects if inside a form)
+        e.preventDefault();
+
+        const currentItem = this.closest('.faq-item');
+        const answer = currentItem.querySelector('.faq-answer');
+        const isActive = currentItem.classList.contains('active');
+
+        // Close all other items (accordion behavior). Remove this loop if you want multiple open.
+        items.forEach(i => {
+          if (i !== currentItem) {
+            i.classList.remove('active');
+            const btn = i.querySelector('.faq-question');
+            btn.setAttribute('aria-expanded', 'false');
+            const ans = i.querySelector('.faq-answer');
+            ans.style.maxHeight = null;
+          }
+        });
+
+        if (isActive) {
+          // close current
+          currentItem.classList.remove('active');
+          this.setAttribute('aria-expanded', 'false');
+          answer.style.maxHeight = null;
+        } else {
+          // open current
+          currentItem.classList.add('active');
+          this.setAttribute('aria-expanded', 'true');
+
+          // set exact maxHeight for smooth transition (avoids guessing)
+          answer.style.maxHeight = answer.scrollHeight + 'px';
+        }
+      });
+    });
+
+    // If you want to have the first item open on load, uncomment:
+    // if (items[0]) { items[0].querySelector('.faq-question').click(); }
+  });
+
+
+
+  
 </script>
 
 

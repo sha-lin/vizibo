@@ -1152,8 +1152,8 @@
 }
 
 .about-image img {
-  width: 250px;              /* adjust logo size */
-  height: auto;
+  width: 300px;              /* adjust logo size */
+  height: 250px;             /* adjust logo size */
   animation: floatLogo 6s ease-in-out infinite;
   background: none;
 }
@@ -1239,11 +1239,198 @@
   color: #ff6b35;             /* arrow hover color */
 }
 
+/* --- NAVBAR STYLING --- */
+
+/* Fixed navbar height and layout */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;         /* Fixed navbar height */
+  min-height: 80px;
+  z-index: 1000;
+  background: #0423c2;
+  display: flex;
+  align-items: center;
+  transition: box-shadow 0.3s, background 0.3s;
+
+}
+
+/* Logo larger, but constrained by navbar height */
+.logo img {
+  max-height: 200px;    /* Large logo */
+  width: auto;
+  object-fit: contain;
+  display: block;
+  /* margin-top: -60px; */
+}
+
+/* Nav container: logo left, nav links right */
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 0 2rem;
+}
+
+/* Nav links to the right, aligned center */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  margin-left: auto;           /* Push nav links to the right */
+  list-style: none;
+  height: 100%;
+}
+
+/* CONTACT US button style (match index.html) */
+.nav-links a.button,
+.nav-links .button1 {
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  border-radius: 4px;
+  background: #4967d2;
+  color: #fff;
+  margin: 0;
+  height: auto;
+  box-shadow: none;
+  display: inline-block;
+  border: none;
+  font-weight: 500;
+  text-align: center;
+  transition: none;
+}
+
+/* Responsive: hamburger menu for mobile */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.logo img {
+  height: 200px;      /* Increase size as you like */
+  width: auto;       /* Keep aspect ratio */
+  max-width: none;   /* Prevents limiting the width */
+  object-fit: contain;
+}
+
+/* Navbar container layout */
+.nav-container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;   /* Push nav links to the right */
+  padding: 0 2rem;
+}
+
+/* Prevent navbar from stretching when logo grows */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  margin-left: auto;           /* Push nav links to the right */
+  align-items: center;
+  height: 100%;                /* Fill navbar height */
+  padding: 0;
+  background: none;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 0;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  /* .nav-links  {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    
+    flex-direction: column;
+    padding: 1rem 0;
+  } */
+
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100vw;           /* Full viewport width */
+    min-height: 100vh;      /* Full viewport height */
+    background: #000;       /* Black background */
+    flex-direction: column;
+    padding: 2rem 0;
+    z-index: 9999;          /* Ensure it overlays content */
+  }
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+/* Responsive About Section */
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr; /* Stack content and image vertically */
+    gap: 2rem;
+  }
+  .about-image img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100vw;
+    min-height: 100vh;
+    background: #000;
+    flex-direction: column;
+    padding: 2rem 0;
+    z-index: 9999;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+}
+
 
     </style>
   </head>
   <body>
     <nav class="navbar" id="navbar">
+
+      <div class="logo-container">
+          <!-- <img src="images/VIZIBO LOGO F1.pdf (1).png" alt=""> -->
+        <a class="logo" href="index.html"
+          ><img src="images/VIZIBO LOGO F1.pdf (1).png" alt=""/></a>
+
+      </div>
       <div class="nav-container">
         <a class="logo" href="index.html"
           ><img src="images/VIZIBO LOGO F1_page-0001.jpg" alt=""
@@ -1273,28 +1460,12 @@
               <div class="section-header">
                 <h2>Print & <br> Event Branding</h2>
                 <p>Event branding creates lasting impressions and reinforces your message throughout the attendee journey. Vizibo's Print & Event Branding services ensure your brand is prominently and professionally displayed across every element of your event, from the moment attendees arrive until they depart with lasting memories of your brand.</p>
-  <h3>Stage & Backdrop Design</h3>
-  <p>We create custom stage backdrops that frame your speakers and presenters perfectly. Step-and-repeat banners provide ideal photo opportunities for media and VIP guests. Branded stage skirting conceals equipment while maintaining brand presence. Podium branding ensures your logo is visible in every photo and video. Our speaker backdrop systems can be customized for different sessions and presenters throughout multi-day events.</p>
-  <h3>Signage & Wayfinding</h3>
-  <p>First impressions matter, which is why we design impressive event entrance signage. Our directional and wayfinding signs help attendees navigate venues effortlessly. Room identification markers ensure guests find their sessions quickly. Safety and information signs meet compliance requirements while maintaining brand aesthetics. Floor graphics and decals guide foot traffic and add visual interest to transition spaces.</p>
-  <h3>Delegate Materials</h3>
-  <p>Every attendee receives professionally branded name badges and lanyards that serve as networking tools. Event programs and agendas keep participants informed and on schedule. Notebooks and stationery provide functional items attendees will use and keep. Conference folders and bags organize materials while promoting your brand. Credential holders for speakers and VIP guests add a touch of exclusivity.</p>
-  <h3>Promotional Materials</h3>
-  <p>Roll-up and retractable banners offer portable branding solutions that travel easily between events. Pop-up displays create impressive brand walls in exhibition spaces. Branded tablecloths and runners unify registration desks and exhibition booths. Branded tents and canopies extend your brand presence to outdoor spaces. Feather flags and teardrop banners attract attention from a distance and guide attendees to your location.</p>
-  <h3>Print Collateral</h3>
-  <p>We produce high-quality brochures and flyers that communicate your message effectively. Posters and wall graphics transform venue spaces into branded environments. Certificates and awards recognize participant achievements with style. Table tents and menu cards brand every table and meal service. Stickers and decals provide take-home reminders of your event and brand.</p>
-  <h3>Branded Merchandise</h3>
-  <p>Corporate gifts and giveaways leave lasting impressions long after your event ends. Branded apparel including t-shirts, caps, and jackets turn attendees into brand ambassadors. Drinkware and accessories provide daily utility with constant brand visibility. Tech gadgets and USB drives combine functionality with modern appeal. Eco-friendly promotional items demonstrate your commitment to sustainability while promoting your brand.</p>
-  <h3>Our Capabilities</h3>
-  <p>Our in-house design team creates custom graphics and layouts tailored to your brand guidelines. Large format printing capabilities extend up to 16 feet wide for impressive displays. Fast turnaround times accommodate tight deadlines, with rush orders available when needed. Premium materials ensure durability and weather-resistance for indoor and outdoor applications. Professional installation services handle mounting and setup so everything looks perfect.</p>
-  <h3>Material Options</h3>
-  <p>Choose from vinyl and fabric banners suitable for various applications, rigid PVC and foam board for sturdy displays, canvas and mesh materials for different aesthetic needs, window clings and adhesive graphics for glass surfaces, and eco-friendly and recyclable materials to support your sustainability goals.</p>
-  <h3>Brand Consistency</h3>
-  <p>We work closely with your brand guidelines to ensure accurate color matching using Pantone and CMYK standards. Proper logo usage maintains brand integrity across all materials. Consistent typography creates cohesive visual identity. We ensure every element presents a professional appearance that strengthens your brand recognition and recall.</p>
+                <a class="btn btn-secondary" href="print3.html" role="button">Learn More</a>
+
               </div>
             </div>
             <div class="about-image">
-  <img src="images/boomerang.png" alt="Vizibo Logo">
+  <img src="images/boomerang transparent.png" alt="Vizibo Logo">
 </div>
 
             
