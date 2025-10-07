@@ -2181,28 +2181,37 @@ for impactful events and corporate visibility.
   color: #333;
 }
 
-/* === BACKGROUND FIX FOR ALL DEVICES === */
-
-/* 🟦 Blue sections */
+/* ✅ Force correct backgrounds on all devices */
 .about,
 .solutions-section,
 .projects,
 .footer {
-  background: linear-gradient(135deg, #0000FF);
-  color: #fff;
+  background: linear-gradient(135deg, #0000FF) !important;
+  color: #fff !important;
 }
 
-/* ⚪ White sections */
 .services-extra,
 .who-we-work-with {
-  background: #fff;
-  color: #000;
+  background: #fff !important;
+  color: #000 !important;
 }
 
-/* 🎥 Hero section: no background */
-.hero {
+/* Ensure body doesn’t override */
+body {
   background: none !important;
 }
+
+html, body {
+  min-height: 100%;
+  background-attachment: fixed;
+  /* -webkit-background-clip: border-box; */
+}
+
+
+
+
+
+
 
 
         </style>
