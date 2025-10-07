@@ -1686,12 +1686,77 @@
   }
 }
 
+
+
+
+
+
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); 
+  gap: 2rem;
+  justify-items: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+@media (max-width: 992px) {
+  .logo-grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 per row on tablets */
+  }
+}
+
+@media (max-width: 600px) {
+  .logo-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 per row on phones */
+    gap: 1rem;
+  }
+  .logo-item img {
+  width: 100px;      /* Same as Isuzu logo */
+  height: 100px;     /* Same as Isuzu logo */
+  object-fit: contain;
+  border-radius: 8px;/* Optional: rounded corners */
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06); /* Optional: subtle shadow */
+  margin-bottom: 0.5rem;
+  display: block;
+  }
+}
+
+.logo-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100px;
+}
+
+
+
+ 
+.who-we-work-with {
+  background-color: #f9f9f9; /* Light grey background */
+  padding: 4rem 0; /* Increased padding for more space */
+  text-align: center;
+  color: #333;
+}
+
+
 .about,
 .solutions-section,
 .projects,
 .footer {
   background: linear-gradient(135deg, #0000FF) !important;
-  /* color: #fff !important; */
+  color: #fff !important;
+}
+
+.services-extra,
+.who-we-work-with {
+  background: #fff !important;
+  color: #000 !important;
+}
+
+/* Prevent body override */
+body {
+  background: none !important;
 }
 
 
@@ -2131,90 +2196,7 @@ for impactful events and corporate visibility.
       </section>
 
       <section class="who-we-work-with">
-        <style>
-          .logo-grid {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr); 
-  gap: 2rem;
-  justify-items: center;
-  align-items: center;
-  margin-top: 2rem;
-}
-@media (max-width: 992px) {
-  .logo-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 per row on tablets */
-  }
-}
-
-@media (max-width: 600px) {
-  .logo-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 per row on phones */
-    gap: 1rem;
-  }
-  .logo-item img {
-  width: 100px;      /* Same as Isuzu logo */
-  height: 100px;     /* Same as Isuzu logo */
-  object-fit: contain;
-  border-radius: 8px;/* Optional: rounded corners */
-  box-shadow: 0 2px 8px rgba(0,0,0,0.06); /* Optional: subtle shadow */
-  margin-bottom: 0.5rem;
-  display: block;
-  }
-}
-
-.logo-item {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100px;
-}
-
-
-/* .who-we-work-with {
-  background-color: #FFF;
-} */
- 
-.who-we-work-with {
-  background-color: #f9f9f9; /* Light grey background */
-  padding: 4rem 0; /* Increased padding for more space */
-  text-align: center;
-  color: #333;
-}
-
-/* ✅ Force correct backgrounds on all devices */
-.about,
-.solutions-section,
-.projects,
-.footer {
-  background: linear-gradient(135deg, #0000FF) !important;
-  color: #fff !important;
-}
-
-.services-extra,
-.who-we-work-with {
-  background: #fff !important;
-  color: #000 !important;
-}
-
-/* Ensure body doesn’t override */
-body {
-  background: none !important;
-}
-
-html, body {
-  min-height: 100%;
-  background-attachment: fixed;
-  /* -webkit-background-clip: border-box; */
-}
-
-
-
-
-
-
-
-
-        </style>
+      
 
   <section class="who-we-work-with">
   <div class="container">
