@@ -662,29 +662,7 @@
 </head>
 <body>
 
-  <!-- ==================== NAVBAR ==================== -->
-  <nav class="navbar" id="navbar">
-    <div class="logo-container">
-          <!-- <img src="images/VIZIBO LOGO F1.pdf (1).png" alt=""> -->
-        <a class="logo" href="index.html"
-          ><img src="images/VIZIBO LOGO F1.pdf (1).png" alt=""/></a>
-
-      </div>
-    <div class="nav-container">
-      <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="index.html">ABOUT US</a></li>
-        <li><a href="index.html">SOLUTIONS</a></li>
-        <li><a href="index.html">PROJECTS</a></li>
-        <li><a href="index.html" class="button button1">CONTACT US</a></li>
-      </ul>
-      <div class="menu-toggle" id="menuToggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-  </nav>
+  
 
 
   <style>
@@ -949,9 +927,380 @@ body {
     display: flex;
   }
 }
+
+
+      /* ===== HERO SECTION ===== */
+      .hero {
+        width: 100%;
+        height: 70vh;
+        background: url("https://plus.unsplash.com/premium_photo-1661313635217-d8d87c14fb66?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y3JlYXRpdmUlMjBzZXJ2aWNlcyUyMHByaW50fGVufDB8fDB8fHww") center/cover
+          no-repeat;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        position: relative;
+        margin-top: 100px; /* navbar offset */
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 51, 102, 0.6);/
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        color: #fff;
+        max-width: 800px;
+        padding: 0 10px;
+      }
+
+      .hero-content h1 {
+        font-size: 2.8rem;
+        margin-bottom: 10px;
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+        margin-bottom: 25px;
+      }
+
+      .hero-content a {
+        background-color: #ffa500;
+        color: #fff;
+        padding: 12px 25px;
+        border-radius: 5px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: 0.3s;
+      }
+
+      .hero-content a:hover {
+        background-color: #ff8c00;
+      }
+
+      /* ===== FOOTER ===== */
+      footer {
+        background-color: #003366;
+        color: #fff;
+        text-align: center;
+        padding: 30px 8%;
+        margin-top: 50px;
+      }
+
+      footer .footer-links {
+        margin-bottom: 15px;
+      }
+
+      footer .footer-links a {
+        color: #ffa500;
+        margin: 0 10px;
+        text-decoration: none;
+        transition: 0.3s;
+      }
+
+      footer .footer-links a:hover {
+        color: #fff;
+      }
+
+      footer p {
+        font-size: 0.9rem;
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 768px) {
+        nav ul {
+          display: none;
+          flex-direction: column;
+          position: absolute;
+          top: 65px;
+          right: 8%;
+          background-color: #003366;
+          width: 200px;
+          text-align: right;
+          border-radius: 5px;
+          padding: 15px 0;
+        }
+
+        nav ul.active {
+          display: flex;
+        }
+
+        .menu-toggle {
+          display: block;
+        }
+
+        .hero-content h1 {
+          font-size: 2.2rem;
+        }
+
+        .hero-content p {
+          font-size: 1rem;
+        }
+      }
+
+      .services-grid {
+  background-color: #f4f6ff;
+  padding: 80px 0;
+}
+
+.services-grid .container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.5rem;
+  text-align: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.services-grid .grid-item img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.services-grid .grid-item h3 {
+  color: #0b066d;
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.services-grid .grid-item p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.5;
+  padding: 0 10px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .services-grid .container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .services-grid .container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* HERO SECTION */
+.hero {
+  position: relative;
+  background: url("https://plus.unsplash.com/premium_photo-1661313635217-d8d87c14fb66?w=1600&auto=format&fit=crop&q=60") 
+    center/cover no-repeat;
+  color: #fff;
+  padding: 100px 0 80px; /* keeps a nice vertical spacing */
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(4, 35, 194, 0.6),
+    rgba(4, 35, 194, 0.3)
+  );
+  z-index: 0;
+}
+
+/* NAVBAR INSIDE HERO */
+.navbar {
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 1.2rem 0;
+  z-index: 10;
+  background: transparent;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+}
+.logo span {
+  color: #ff6b35;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover {
+  color: #ff6b35;
+}
+
+/* HERO CONTENT */
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 120px 20px 0;
+}
+
+.hero-content h1 {
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 12px 30px;
+  background: #ff6b35;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+.btn-primary:hover {
+  background: #cc542a;
+}
+
+/* MOBILE NAV */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  margin: 4px 0;
+}
+
+@media (max-width: 768px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background: rgba(4, 35, 194, 0.95);
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+
   </style>
 
+<body>
+  <section class="hero">
+    <nav class="navbar">
+      <div class="nav-container">
+        <a href="#" class="logo">Creative<span>Design</span></a>
+        <div class="menu-toggle" id="menu-toggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-links" id="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
 
+    <div class="hero-content">
+      <h1>Creative Services & Event Design</h1>
+      <p>We bring your vision to life through creativity and design excellence.</p>
+      <a href="#" class="btn-primary">Learn More</a>
+    </div>
+  </section>
+
+
+
+    
+
+
+
+
+    <section class="services-grid">
+  <div class="container">
+    <div class="grid-item">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="Design Strategy">
+      <h3>Design Strategy</h3>
+      <p>We create powerful brand visuals and experiences that inspire your audience and drive engagement.</p>
+    </div>
+    <div class="grid-item">
+      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Event Planning">
+      <h3>Event Planning</h3>
+      <p>Our team designs and coordinates unforgettable experiences tailored to your brand and vision.</p>
+    </div>
+    <div class="grid-item">
+      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" alt="Creative Branding">
+      <h3>Creative Branding</h3>
+      <p>We help brands tell their story visually through creative strategy, graphics, and identity design.</p>
+    </div>
+
+    <div class="grid-item">
+      <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" alt="Photography">
+      <h3>Photography</h3>
+      <p>Our professional photographers capture the emotion and essence of your brand and events.</p>
+    </div>
+    <div class="grid-item">
+      <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" alt="Digital Printing">
+      <h3>Digital Printing</h3>
+      <p>High-quality prints with precision and vibrant color, perfect for marketing and branding materials.</p>
+    </div>
+    <div class="grid-item">
+      <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" alt="Graphic Design">
+      <h3>Graphic Design</h3>
+      <p>Creative and impactful design solutions for logos, banners, and marketing assets that stand out.</p>
+    </div>
+  </div>
+</section>
 
 
   <!-- <section class="headline">
@@ -961,7 +1310,7 @@ From the first invite to the final photo, <br> we brand every touchpoint for a s
       <p><i>We design, produce, and deploy event branding across print, digital, <br>and on-screen displays—so your guests see one story everywhe</i></p>
 </section> -->
 
- <section class="split-section">
+ <!-- <section class="split-section">
     <div class="container split-grid">
       <div class="text-col">
         <h2>Event Branding, Large Format Printing <br> & Digital Signage Solutions</h2>
@@ -978,7 +1327,7 @@ From the first invite to the final photo, <br> we brand every touchpoint for a s
       background: transparent;
       box-shadow: none;
     }
-  </style>
+  </style> -->
 
   <!-- ==================== PROCESS ==================== -->
   <!-- <section class="process-section">
@@ -1009,7 +1358,7 @@ From the first invite to the final photo, <br> we brand every touchpoint for a s
   </section> -->
 
   <!-- ==================== STRATEGY ==================== -->
-  <section class="split-section">
+  <!-- <section class="split-section">
     <div class="container split-grid">
       <div class="text-col">
         <h2>What We Brand</h2>
@@ -1027,7 +1376,7 @@ From the first invite to the final photo, <br> we brand every touchpoint for a s
         <img src="https://media.istockphoto.com/id/1481754205/photo/media-and-journalism-concept.webp?a=1&b=1&s=612x612&w=0&k=20&c=62oPokrD_Iur3E6qSRPkur9p144FBlffbujyKvU_7QA=" alt="">
       </div>
     </div>
-  </section>
+  </section> -->
 
 
   <section class="easy-process">
