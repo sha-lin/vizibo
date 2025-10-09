@@ -94,11 +94,13 @@
     .hero-section {
       padding: 120px 0;
       text-align: center;
-      background: #f4f4f4;
+      /* background: #f4f4f4; */
     }
     .hero-section h1 {
       font-size: 2.8rem;
       margin-bottom: 1rem;
+      
+      /* color: #f4f4f4; */
     }
     .hero-section p {
       font-size: 1.2rem;
@@ -657,6 +659,27 @@
   flex-shrink: 0;
 }
 
+/* NAVBAR INSIDE HERO - Starts as transparent */
+.navbar {
+  width: 100%;
+  position: absolute; /* Key: Positioned *relative* to the hero */
+  top: 0;
+  left: 0;
+  padding: 1.2rem 0;
+  z-index: 10;
+  background: transparent !important; /* Force transparent initially */
+  transition: all 0.3s ease;
+}
+
+/* Navbar when scrolled - BECOMES FIXED AND BLUE */
+.navbar.scrolled {
+  position: fixed; /* Key: Changes to fixed position */
+  top: 0;
+  padding: 0.5rem 0;
+  background-color: #0423c2 !important; /* Force the solid blue background */
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5); /* Optional: Adds shadow */
+}
+
 
   </style>
 </head>
@@ -703,13 +726,23 @@
 .easy-process .step {
   text-align: center;
   align-items: center;
+  
 }
 .easy-process .step-number {
   font-size: 2.5rem;
   font-weight: bold;
-  color: #9035ff;
+  color: floralwhite;
   margin-bottom: 1rem;
 }
+.easy-process .step h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: black;
+}
+.easy-process h2{
+  color: black;
+}
+
 .easy-process .step-number img {
   width: 100px;  /* Set consistent size */
   height: 100px;
@@ -861,9 +894,9 @@
 }
 
 /* Increase base font size */
-body {
-  font-size: 18px; /* or 20px for larger text */
-}
+/* body {
+  font-size: 15px; 
+} */
 
 /* Optionally, increase section font sizes */
 .text-section p, .text-section ul,
@@ -940,7 +973,7 @@ body {
         align-items: center;
         text-align: center;
         position: relative;
-        margin-top: 100px; /* navbar offset */
+        margin-top: 0px;
       }
 
       .hero::before {
@@ -964,6 +997,7 @@ body {
       .hero-content h1 {
         font-size: 2.8rem;
         margin-bottom: 10px;
+        color: #fff;
       }
 
       .hero-content p {
@@ -1063,13 +1097,13 @@ body {
   width: 100%;
   height: 200px;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 0px;
   margin-bottom: 1rem;
   box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .services-grid .grid-item h3 {
-  color: #0b066d;
+  color: black;
   font-size: 1.3rem;
   margin-bottom: 0.5rem;
 }
@@ -1109,10 +1143,10 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(
+  /* background: linear-gradient(
     rgba(4, 35, 194, 0.6),
     rgba(4, 35, 194, 0.3)
-  );
+  ); */
   z-index: 0;
 }
 
@@ -1230,34 +1264,116 @@ body {
   }
 }
 
+/* ===== MAKE PAGE CONTENT SMALLER & MORE COMPACT ===== */
+
+/* Reduce the base font size site-wide */
+body {
+  font-size: 14px;   /* default is 16px — reduces all text slightly */
+  line-height: 1.5;  /* keeps readability */
+}
+
+/* Make headings slightly smaller for balance */
+h1 {
+  font-size: 2.2rem;
+}
+h2 {
+  font-size: 1.6rem;
+}
+h3 {
+  font-size: 1.1rem;
+}
+
+/* Adjust hero text size so it doesn’t dominate */
+.hero-content h1 {
+  font-size: 2.2rem;
+}
+.hero-content p {
+  font-size: 1rem;
+}
+
+/* Slightly tighten general section paddings */
+section {
+  padding: 50px 0; /* previously 70–100px */
+}
+
+/* Reduce CTA and testimonial font sizes */
+.cta-section h2 {
+  font-size: 1.8rem;
+}
+.cta-section p {
+  font-size: 1rem;
+}
+.testimonial blockquote {
+  font-size: 1rem;
+}
+
+/* Reduce service grid spacing and text */
+.services-grid .grid-item h3 {
+  font-size: 1.1rem;
+}
+.services-grid .grid-item p {
+  font-size: 0.95rem;
+}
+
+/* FAQ smaller typography */
+.faq-question {
+  font-size: 1rem;
+}
+.faq-answer {
+  font-weight: 600;
+}
+
+/* Adjust container width slightly wider for less zoom */
+.container {
+  max-width: 1100px;
+}
+
+
+
 
   </style>
 
 <body>
-  <section class="hero">
-    <nav class="navbar">
+
+  <nav class="navbar" id="navbar">
+      <div class="logo-container">
+          <!-- <img src="images/VIZIBO LOGO F1.pdf (1).png" alt=""> -->
+        <a class="logo" href="index.html"
+          ><img src="images/VIZIBO LOGO F1.pdf (1).png" alt="vizibo logo" loading="lazy"/></a>
+
+      </div>
+
       <div class="nav-container">
-        <a href="#" class="logo">Creative<span>Design</span></a>
-        <div class="menu-toggle" id="menu-toggle">
+        
+        
+        
+          
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html">HOME</a></li>
+          <li><a href="#about">ABOUT US</a></li>
+          <li><a href="#solutions">SOLUTIONS</a></li>
+          <li><a href="#projects">PROJECTS</a></li>
+          <li><a href="#footer" class="button button1">CONTACT US</a></li>
+        </ul>
+        <div class="menu-toggle" id="menuToggle">
           <span></span>
           <span></span>
           <span></span>
         </div>
-        <ul class="nav-links" id="nav-links">
-          <li><a href="#">Home</a></li>
-          <li><a href="#">Services</a></li>
-          <li><a href="#">Portfolio</a></li>
-          <li><a href="#">Contact</a></li>
-        </ul>
       </div>
     </nav>
 
-    <div class="hero-content">
-      <h1>Creative Services & Event Design</h1>
-      <p>We bring your vision to life through creativity and design excellence.</p>
-      <a href="#" class="btn-primary">Learn More</a>
+    <section class="hero">
+
+      <div class="hero-content">
+      <h1>Event Branding</h1>
+      <p>We design, produce, and deploy event branding across print, digital, and on-screen displays—so your guests see one story everywhere</p>
+      <a href="#printing" class="btn-primary">Learn More</a>
     </div>
-  </section>
+  
+  
+</section>
+  
 
 
 
@@ -1265,123 +1381,131 @@ body {
 
 
 
-
-    <section class="services-grid">
+<h3 style="text-align: center;">What We Brand</h3>
+    <section class="services-grid" id="printing">
+      
   <div class="container">
+    
     <div class="grid-item">
-      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c" alt="Design Strategy">
-      <h3>Design Strategy</h3>
-      <p>We create powerful brand visuals and experiences that inspire your audience and drive engagement.</p>
+      <img src="https://images.unsplash.com/photo-1539964604210-db87088e0c2c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmVudWUlMjAlMjYlMjBzdGFnZXxlbnwwfHwwfHx8MA%3D%3D" alt="Design Strategy">
+      <h3>Venue & Stage</h3>
+        <p font-weight: light;>
+          <I>Inspur • LC3.9NT</I>
+        </p>
+
+        <div class="specs">
+    <h4>Info</h4>
+    <ul>
+      <li>main backdrops</li>
+  <li>step-and-repeat walls</li>
+  <li>stage skirting</li>
+  <li>lectern skins</li>
+  <li>side banners</li>
+    </ul>
+  </div>
     </div>
     <div class="grid-item">
-      <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f" alt="Event Planning">
-      <h3>Event Planning</h3>
-      <p>Our team designs and coordinates unforgettable experiences tailored to your brand and vision.</p>
-    </div>
-    <div class="grid-item">
-      <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d" alt="Creative Branding">
-      <h3>Creative Branding</h3>
-      <p>We help brands tell their story visually through creative strategy, graphics, and identity design.</p>
+      <img src="https://images.unsplash.com/photo-1758578484467-52d57a339904?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2F5ZmluZGluZyUyMCUyNiUyMHNwYWNlc3xlbnwwfHwwfHx8MA%3D%3D" alt="Event Planning">
+      <h3>Wayfinding & Spaces</h3>
+        <p font-weight: light;>
+          <I>Inspur • LC3.9NT</I>
+        </p>
+
+        <div class="specs">
+    <h4>Info</h4>
+    <ul>
+      <li>directional signage</li>
+  <li>zone IDs</li>
+  <li>floor decals</li>
+  <li>registration desks</li>
+  <li>help desks</li>
+    </ul>
+  </div>
     </div>
 
     <div class="grid-item">
       <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" alt="Photography">
-      <h3>Photography</h3>
-      <p>Our professional photographers capture the emotion and essence of your brand and events.</p>
+      <h3>Attendee Items</h3>
+        <p font-weight: light;>
+          <I>Inspur • LC3.9NT</I>
+        </p>
+
+        <div class="specs">
+    <h4>Info</h4>
+    <ul>
+      <li>badges</li>
+  <li>lanyards</li>
+  <li>wristbands</li>
+  <li>tote bags</li>
+  <li>programs</li>
+  <li>menu boards</li>
+    </ul>
+  </div>
     </div>
     <div class="grid-item">
-      <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" alt="Digital Printing">
-      <h3>Digital Printing</h3>
-      <p>High-quality prints with precision and vibrant color, perfect for marketing and branding materials.</p>
+      <img src="https://images.unsplash.com/photo-1581343117330-0104b39ce4c9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGRpZ2l0YWwlMjAlMjYlMjBzY3JlZW5zfGVufDB8fDB8fHww" alt="Graphic Design">
+      <h3>Digital & Screens</h3>
+        <p font-weight: light;>
+          <I>Inspur • LC3.9NT</I>
+        </p>
+
+        <div class="specs">
+    <h4>Info</h4>
+    <ul>
+       <li>LED walls</li>
+  <li>kiosks</li>
+  <li>touch screens</li>
+  <li>digital agendas</li>
+  <li>countdowns</li>
+  <li>lower-thirds</li>
+  <li>sponsor loops</li>
+    </ul>
+  </div>
+    </div>
+    <div class="grid-item">
+      <img src="https://plus.unsplash.com/premium_photo-1661780612519-42eabd9a96c9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGhvdG8lMjAlMjYlMjBzb2NpYWx8ZW58MHx8MHx8fDA%3D" alt="Graphic Design">
+      <h3>Photo & Social</h3>
+        <p font-weight: light;>
+          <I>Inspur • LC3.9NT</I>
+        </p>
+
+        <div class="specs">
+    <h4>Info</h4>
+    <ul>
+      <li>media walls</li>
+  <li>photo booths</li>
+  <li>branded frames</li>
+  <li>AR filters</li>
+  <li>QR landing pages</li>
+    </ul>
+  </div>
     </div>
     <div class="grid-item">
       <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" alt="Graphic Design">
-      <h3>Graphic Design</h3>
-      <p>Creative and impactful design solutions for logos, banners, and marketing assets that stand out.</p>
+      <h3>Experiential Touchpoints</h3>
+        <p font-weight: light;>
+          <I>Inspur • LC3.9NT</I>
+        </p>
+
+        <div class="specs">
+    <h4>Info</h4>
+    <ul>
+      <li>demo pods</li>
+  <li>product corners</li>
+  <li>interactive zones</li>
+  <li>expo booths</li>
+    </ul>
+  </div>
     </div>
   </div>
 </section>
 
 
-  <!-- <section class="headline">
-    
-    <p><i>Make Your Event Unmissable.
-From the first invite to the final photo, <br> we brand every touchpoint for a seamless, premium experience.</i></p>
-      <p><i>We design, produce, and deploy event branding across print, digital, <br>and on-screen displays—so your guests see one story everywhe</i></p>
-</section> -->
-
- <!-- <section class="split-section">
-    <div class="container split-grid">
-      <div class="text-col">
-        <h2>Event Branding, Large Format Printing <br> & Digital Signage Solutions</h2>
-        <p><i>Every event tells a story, the moment guests walk in, the atmosphere, the visuals, the branded details that make them feel part of something bigger. At Visibo, we design and execute that story to be bold, seamless, and unforgettable.</i></p>
-        <p><i>From corporate summits that demand authority to product launches that spark excitement, we create immersive brand worlds where every print element and digital screen work together.</i> </p>
-      </div>
-      <div class="image-col">
-        <img src="https://plus.unsplash.com/premium_photo-1752230474021-5749c334925a?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8RXZlbnQlMjBCcmFuZGluZyUyQyUyMExhcmdlJTIwRm9ybWF0JTIwUHJpbnRpbmclMjAlMjYlMjBEaWdpdGFsJTIwU2lnbmFnZSUyMFNvbHV0aW9uc3xlbnwwfHwwfHx8MA%3D%3D" alt="">
-      </div>
-    </div>
-  </section>
-  <style>
-    .image-col img {
-      background: transparent;
-      box-shadow: none;
-    }
-  </style> -->
-
-  <!-- ==================== PROCESS ==================== -->
-  <!-- <section class="process-section">
-    <div class="container">
-      <div class="steps-grid">
-        <div class="step">
-          <img src="https://meetingtomorrow.com/wp-content/uploads/2024/07/explore-circle.png" alt="Explore">
-          <h3>Explore</h3>
-          <p>We conduct a kickoff meeting to understand goals, your brand & audience.</p>
-        </div>
-        <div class="step">
-          <img src="https://meetingtomorrow.com/wp-content/uploads/2024/07/explore-circle.png" alt="Develop">
-          <h3>Develop</h3>
-          <p>We brainstorm internally to produce creative concepts / direction.</p>
-        </div>
-        <div class="step">
-          <img src="https://meetingtomorrow.com/wp-content/uploads/2024/07/explore-circle.png" alt="Present">
-          <h3>Present</h3>
-          <p>We share storyboards, mood boards, visual proposals & narratives.</p>
-        </div>
-        <div class="step">
-          <img src="https://meetingtomorrow.com/wp-content/uploads/2024/07/explore-circle.png" alt="Deliver">
-          <h3>Deliver</h3>
-          <p>We take your approved concept and execute branding, video, print.</p>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-  <!-- ==================== STRATEGY ==================== -->
-  <!-- <section class="split-section">
-    <div class="container split-grid">
-      <div class="text-col">
-        <h2>What We Brand</h2>
-        <ul>
-          <li>Venue & Stage: main backdrops, step-and-repeat walls, stage skirting, lectern skins, side banners</li>
-          <li>Wayfinding & Spaces: directional signage, zone IDs, floor decals, registration desks, help desks</li>
-          <li>Attendee Items: badges, lanyards, wristbands, tote bags, programs, menu boards</li>
-          <li>Digital & Screens: LED walls, kiosks, touch screens, digital agendas, countdowns, lower-thirds, sponsor loops</li>
-          <li>Photo & Social: media walls, photo booths, branded frames, AR filters, QR landing pages</li>
-          <li>Experiential Touchpoints: demo pods, product corners, interactive zones, expo booths</li>
-          
-        </ul>
-      </div>
-      <div class="image-col">
-        <img src="https://media.istockphoto.com/id/1481754205/photo/media-and-journalism-concept.webp?a=1&b=1&s=612x612&w=0&k=20&c=62oPokrD_Iur3E6qSRPkur9p144FBlffbujyKvU_7QA=" alt="">
-      </div>
-    </div>
-  </section> -->
 
 
   <section class="easy-process">
   <div class="container">
-    <h2>How It Works</h2> <br><br>
+    <h2>How It Works</h2> 
     <div class="steps">
       <div class="step">
         <div class="step-number"><img src="https://cdn-icons-png.flaticon.com/128/10822/10822534.png" alt=""></div>
@@ -1595,6 +1719,16 @@ Yes—tiered templates keep sponsor placement consistent and elegant.          <
     navLinks.classList.toggle('active');
   });
 
+
+  window.addEventListener('scroll', () => {
+  // Use the class 'navbar' or an ID if available
+  const navbar = document.querySelector('.navbar'); 
+  if (window.scrollY > 50) {
+    navbar.classList.add('scrolled');
+  } else {
+    navbar.classList.remove('scrolled');
+  }
+});
   // Optional: shrink navbar on scroll
   window.addEventListener('scroll', () => {
     const navbar = document.getElementById('navbar');
