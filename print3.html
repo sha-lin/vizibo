@@ -4,79 +4,64 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-
   <title>Creative Services & Event Design</title>
+
   <style>
-    /* ==================== RESET & BASE ==================== */
-    *, *::before, *::after {
-      box-sizing: border-box;
-    }
+    /* RESET */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
       font-family: "Poppins", sans-serif;
       color: #333;
+      font-size: 14px;
+      line-height: 1.5;
+      margin: 0;
+      overflow-x: hidden;
     }
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-    h1, h2, h3 {
-      color: #0b066d;
-    }
+    a { text-decoration: none; color: inherit; }
 
-    /* ==================== NAVBAR ==================== */
+    /* NAVBAR */
     .navbar {
-        max-height: 70px;
-        position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-        padding: 1rem 0;
-        transition: all 0.3s ease;
-        background: none;
-        display: flex;
-        justify-content: space-between;
-      }
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      background: transparent;
+      transition: all 0.3s ease;
+      padding: 1rem 0;
+    }
     .navbar.scrolled {
-      padding: 0.5rem 0;
-      /* background: linear-gradient(135deg, #1a1a2e, #16213e); */
-      /* box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); */
+      position: fixed;
+      background-color: #0423c2;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.3);
+      padding: 0.6rem 0;
     }
     .nav-container {
       max-width: 1200px;
       margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
       padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    .logo {
-      font-size: 2rem;
-      font-weight: bold;
-      color: #fff;
-      text-decoration: none;
-    }
-    .logo span {
-      color: #ff6b35;
+    .logo img {
+      height: 60px;
+      width: auto;
+      object-fit: contain;
     }
     .nav-links {
       display: flex;
       list-style: none;
       gap: 2rem;
+      margin-left: auto;
     }
     .nav-links a {
       color: #fff;
-      text-decoration: none;
-      transition: color 0.3s ease;
+      font-weight: 500;
+      transition: color 0.3s;
     }
-    .nav-links a:hover {
-      color: #ff6b35;
-    }
+    .nav-links a:hover { color: #ff6b35; }
+
     .menu-toggle {
       display: none;
       flex-direction: column;
@@ -87,843 +72,267 @@
       height: 3px;
       background: #fff;
       margin: 3px 0;
-      transition: 0.3s;
     }
 
-    /* ==================== HERO SECTION ==================== */
-    .hero-section {
-      padding: 120px 0;
-      text-align: center;
-      /* background: #f4f4f4; */
-    }
-    .hero-section h1 {
-      font-size: 2.8rem;
-      margin-bottom: 1rem;
-      
-      /* color: #f4f4f4; */
-    }
-    .hero-section p {
-      font-size: 1.2rem;
-      margin-bottom: 1.5rem;
-    }
-    .btn-primary {
-      display: inline-block;
-      padding: 12px 30px;
-      background: #9035ff;
+    /* HERO */
+    .hero {
+      position: relative;
+      background: url("https://plus.unsplash.com/premium_photo-1661313635217-d8d87c14fb66?w=1600&auto=format&fit=crop&q=60") center/cover no-repeat;
       color: #fff;
-      border-radius: 8px;
-      transition: background 0.3s;
-    }
-    .btn-primary:hover {
-      background: #6e24cc;
-    }
-
-    /* ==================== PROCESS SECTION ==================== */
-    .process-section {
-      padding: 80px 0;
-    }
-    .steps-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
+      height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       text-align: center;
+      padding: 0 1rem;
     }
-    .step {
-      padding: 1rem;
+    .hero::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(4, 35, 194, 0.6);
+      z-index: 0;
     }
-    .step img {
-      width: 100px;
-      height: 100px;
-      margin-bottom: 1rem;
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
     }
-    .step h3 {
-      margin-bottom: 0.5rem;
+    .hero-content h1 { font-size: 2rem; margin-bottom: 0.5rem; }
+    .hero-content p { font-size: 1rem; margin-bottom: 1rem; }
+    .btn-primary {
+      background: #ff6b35;
+      color: #fff;
+      padding: 10px 25px;
+      border-radius: 6px;
+      transition: background 0.3s;
+      display: inline-block;
     }
+    .btn-primary:hover { background: #cc542a; }
 
-    /* ==================== TEXT SECTIONS ==================== */
-    .text-section {
+    /* SERVICES GRID */
+    .services-grid {
+      background-color: #f4f6ff;
       padding: 60px 0;
     }
-    .text-section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-    .text-section p, .text-section ul {
-      max-width: 700px;
-      margin: 0 auto;
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-    .text-section ul {
-      list-style: disc;
-      padding-left: 1.5rem;
-    }
-
-    /* ==================== SPLIT SECTIONS ==================== */
-    .split-section {
-      padding: 80px 0;
-    }
-    .split-grid {
+    .services-grid .container {
+      max-width: 1100px;
+      margin: auto;
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 3rem;
-      align-items: center;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      text-align: center;
+      padding: 0 1rem;
     }
-    .split-section h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #0b066d;
-    }
-    .split-section p,
-    .split-section ul {
-      font-size: 1rem;
-      line-height: 1.6;
-    }
-    .split-section ul {
-      list-style: disc;
-      padding-left: 1.5rem;
-    }
-    .image-col img {
+    .grid-item img {
       width: 100%;
-      border-radius: 10px;
+      height: 180px;
       object-fit: cover;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      border-radius: 5px;
+      margin-bottom: 0.8rem;
     }
-    .split-section.alt .text-col {
-      order: 2;
+    .grid-item h3 { font-size: 1rem; color: #0b066d; }
+    .grid-item p, .grid-item ul {
+      font-size: 0.9rem;
+      color: #555;
     }
 
-    /* ==================== TESTIMONIAL ==================== */
-    .testimonial {
-      padding: 80px 0;
+    /* HOW IT WORKS */
+    .easy-process {
+      padding: 60px 20px;
       text-align: center;
+    }
+    .easy-process h2 {
+      color: #0b066d;
+      font-size: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1.5rem;
+    }
+    .step img {
+      width: 70px;
+      height: 70px;
+      object-fit: contain;
+      margin-bottom: 0.5rem;
+    }
+    .step h3 {
+      font-size: 1rem;
+      color: #222;
+      margin-bottom: 0.3rem;
+    }
+    .step p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    /* FAQ */
+    .faq {
+      padding: 60px 0;
+    }
+    .faq h2 {
+      text-align: center;
+      font-size: 1.5rem;
+      color: #0b066d;
+      margin-bottom: 1.5rem;
+    }
+    .faq-list { max-width: 700px; margin: auto; }
+    .faq-item {
+      border-bottom: 1px solid #ddd;
+      padding: 1rem 0;
+    }
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #222;
+      cursor: pointer;
+    }
+    .faq-answer {
+      display: none;
+      padding-top: 0.4rem;
+      color: #555;
+      font-size: 0.9rem;
+    }
+    .faq-item.active .faq-answer { display: block; }
+
+    /* TESTIMONIAL */
+    .testimonial {
       background: #f4f4f4;
+      padding: 60px 20px;
+      text-align: center;
     }
     .testimonial blockquote {
-      font-size: 1.2rem;
-      margin: 0 auto 1rem;
-      max-width: 700px;
-      position: relative;
-    }
-    .testimonial cite {
-      display: block;
-      margin-top: 1rem;
-      font-weight: bold;
-    }
-
-    /* ==================== CTA SECTION ==================== */
-    .cta-section {
-      padding: 100px 0;
-      text-align: center;
-    }
-    .cta-section h2 {
-      font-size: 2.4rem;
+      font-size: 0.9rem;
+      color: #444;
       margin-bottom: 1rem;
     }
-    .cta-section p {
-      margin-bottom: 1.5rem;
-      font-size: 1.1rem;
+    .testimonial cite { font-weight: bold; }
+
+    /* CTA */
+    .cta-section {
+      text-align: center;
+      padding: 60px 20px;
+    }
+    .cta-section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
     }
 
-    /* ==================== FOOTER ==================== */
+    /* FOOTER */
     .footer {
-      background-color: #0b066d;
-      padding: 70px 0 30px;
-      margin-top: 50px; 
-      border-top: 2px solid rgba(255, 255, 255, 0.2); 
+      background: #0423c2;
+      color: #fff;
+      padding: 60px 20px 30px;
     }
     .footer .row {
       display: flex;
-      justify-content: center;   
-      align-items: flex-start;   
-      text-align: center;
-      gap: 3rem;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      text-align: left;
     }
     .footer-col {
-      width: 25%;
-      padding: 0 15px;
+      width: 250px;
     }
     .footer-col h4 {
-      font-size: 18px;
-      color: #ffffff;
-      text-transform: capitalize;
-      margin-bottom: 35px;
-      font-weight: 500;
+      font-size: 1rem;
+      margin-bottom: 1rem;
       position: relative;
     }
     .footer-col h4::before {
       content: "";
       position: absolute;
+      bottom: -6px;
       left: 0;
-      bottom: -10px;
-      background-color: #e91e63;
+      width: 40px;
       height: 2px;
-      box-sizing: border-box;
-      width: 50px;
+      background: #e91e63;
     }
-    .footer-col ul {
-      list-style: none;
-      padding: 0;
-    }
-    .footer-col ul li:not(:last-child) {
-      margin-bottom: 10px;
-    }
+    .footer-col ul { list-style: none; padding: 0; }
     .footer-col ul li a {
-      font-size: 16px;
-      text-transform: capitalize;
-      color: #bbbbbb;
-      text-decoration: none;
-      font-weight: 300;
+      color: #bbb;
+      font-size: 0.9rem;
       display: block;
-      transition: all 0.3s ease;
+      margin-bottom: 6px;
+      transition: color 0.3s;
     }
-    .footer-col ul li a:hover {
-      color: #ffffff;
-      padding-left: 8px;
-    }
+    .footer-col ul li a:hover { color: #fff; }
     .footer-col .social-links a {
       display: inline-block;
-      height: 40px;
-      width: 40px;
-      background-color: rgba(255, 255, 255, 0.2);
-      margin: 0 10px 10px 0;
-      text-align: center;
-      line-height: 40px;
+      background: rgba(255,255,255,0.2);
+      height: 35px;
+      width: 35px;
+      line-height: 35px;
       border-radius: 50%;
-      color: #ffffff;
-      transition: all 0.5s ease;
+      text-align: center;
+      color: #fff;
+      margin-right: 8px;
+      transition: 0.3s;
     }
     .footer-col .social-links a:hover {
-      color: #24262b;
-      background-color: #ffffff;
+      background: #fff;
+      color: #0423c2;
     }
     .footer-bottom {
-      margin-top: 40px;
-      padding-top: 30px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
       text-align: center;
-    }
-    .footer-bottom p {
-      color: #bbbbbb;
-      margin: 0;
-      font-size: 14px;
-    }
-
-    /* ==================== RESPONSIVE ==================== */
-    @media (max-width: 768px) {
-      .split-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-      .split-section.alt .text-col {
-        order: 1;
-      }
-      .footer-col {
-        width: 50%;
-        margin-bottom: 30px;
-      }
-    }
-    @media (max-width: 574px) {
-      .footer-col {
-        width: 100%;
-      }
+      margin-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      padding-top: 20px;
+      font-size: 0.8rem;
     }
 
-    .footer {
-        /* background-color: #babbc0; */
-        padding: 70px 0;
-        margin-top: 50px; /* Added margin for space */
-        border-top: 2px solid rgba(255, 255, 255, 0.2); /* Added separator line */
-        
-      }
 
-      /* .footer .row {
-  display: flex;
-  justify-content: center;   
-  align-items: flex-start;   
-  text-align: center;        
-  gap: 3rem;                 
-
-} */
-.footer .row {
-  display: flex;
-  flex-wrap: wrap;   /* allows wrapping on small screens */
-  justify-content: center;
-  align-items: flex-start;
-  text-align: center;
-  gap: 2rem;
-}
-
-
-      .footer-col {
-        width: 25%;
-        padding: 0 15px;
-      }
-      .footer-col h4 {
-        font-size: 18px;
-        color: #ffffff;
-        text-transform: capitalize;
-        margin-bottom: 35px;
-        font-weight: 500;
-        position: relative;
-      }
-      .footer-col h4::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: -10px;
-        background-color: #e91e63;
-        height: 2px;
-        box-sizing: border-box;
-        width: 50px;
-      }
-      .footer-col ul li:not(:last-child) {
-        margin-bottom: 10px;
-      }
-      .footer-col ul li a {
-        font-size: 16px;
-        text-transform: capitalize;
-        color: #ffffff;
-        text-decoration: none;
-        font-weight: 300;
-        color: #bbbbbb;
-        display: block;
-        transition: all 0.3s ease;
-      }
-      .footer-col ul li a:hover {
-        color: #ffffff;
-        padding-left: 8px;
-      }
-      .footer-col .social-links a {
-        display: inline-block;
-        height: 40px;
-        width: 40px;
-        background-color: rgba(255, 255, 255, 0.2);
-        margin: 0 10px 10px 0;
-        text-align: center;
-        line-height: 40px;
-        border-radius: 50%;
-        color: #ffffff;
-        transition: all 0.5s ease;
-      }
-      .footer-col .social-links a:hover {
-        color: #24262b;
-        background-color: #ffffff;
-      }
-
-      /*responsive*/
-      @media (max-width: 767px) {
-        .footer-col {
-          width: 50%;
-          margin-bottom: 30px;
-        }
-      }
-      @media (max-width: 574px) {
-        .footer-col {
-          width: 100%;
-        }
-      }
-
-      /* --- FOOTER STYLE TO MATCH INDEX.HTML AND SCREENS3 --- */
-.footer {
-  background-color: #0423c2;
-  padding: 70px 0 30px;
-  margin-top: 50px;
-  border-top: 2px solid rgba(255, 255, 255, 0.2);
-}
-
-.footer .row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: flex-start;
-  text-align: left;
-  gap: 3rem;
-}
-
-.footer-col {
-  width: 25%;
-  padding: 0 15px;
-  color: #fff;
-}
-
-.footer-col h4 {
-  font-size: 18px;
-  color: #ffffff;
-  text-transform: capitalize;
-  margin-bottom: 35px;
-  font-weight: 500;
-  position: relative;
-}
-
-.footer-col h4::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: -10px;
-  background-color: #e91e63;
-  height: 2px;
-  box-sizing: border-box;
-  width: 50px;
-}
-
-.footer-col ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer-col ul li:not(:last-child) {
-  margin-bottom: 10px;
-}
-
-.footer-col ul li a {
-  font-size: 16px;
-  text-transform: capitalize;
-  color: #bbbbbb;
-  text-decoration: none;
-  font-weight: 300;
-  display: block;
-  transition: all 0.3s ease;
-}
-
-.footer-col ul li a:hover {
-  color: #ffffff;
-  padding-left: 8px;
-}
-
-.footer-col .social-links a {
-  display: inline-block;
-  height: 40px;
-  width: 40px;
-  background-color: rgba(255, 255, 255, 0.2);
-  margin: 0 10px 10px 0;
-  text-align: center;
-  line-height: 40px;
-  border-radius: 50%;
-  color: #ffffff;
-  transition: all 0.5s ease;
-}
-
-.footer-col .social-links a:hover {
-  color: #24262b;
-  background-color: #ffffff;
-}
-
-.footer-bottom {
-  margin-top: 40px;
-  padding-top: 30px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  text-align: center;
-}
-
-.footer-bottom p {
-  color: #bbbbbb;
-  margin: 0;
-  font-size: 14px;
-}
-
-/* Responsive footer columns */
-@media (max-width: 767px) {
-  .footer-col {
-    width: 50%;
-    margin-bottom: 30px;
-  }
-}
-@media (max-width: 574px) {
-  .footer-col {
-    width: 100%;
-  }
-}
-      /* Navbar Base */
+/* Fixed navbar height and layout */
 .navbar {
   position: fixed;
   top: 0;
-  width: 100%;
-  z-index: 1000;
-  padding: 1rem 0;
-  background-color: #0423c2;   /* solid blue */
-  transition: all 0.3s ease;
-}
-
-/* Navbar when scrolled */
-.navbar.scrolled {
-  padding: 0.5rem 0;
-  /* background: linear-gradient(135deg, #1a1a2e, #16213e);
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1); */
-}
-
-/* Navbar inner container */
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 2rem;
-}
-
-/* Logo */
-.logo {
-  font-size: 2rem;
-  font-weight: bold;
-  color: #fff;
-  text-decoration: none;
-}
-.logo span {
-  color: #ff6b35; /* orange accent */
-}
-
-/* Nav links */
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-}
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-.nav-links a:hover {
-  color: #ff6b35; /* orange hover for visibility */
-}
-
-/* Mobile menu (hamburger) */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
-.menu-toggle span {
-  width: 25px;
-  height: 3px;
-  background: #fff;
-  margin: 3px 0;
-  transition: 0.3s;
-}
-
-/* Responsive (mobile) */
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: flex; /* show hamburger */
-  }
-
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    background: #1a1a2e;
-    flex-direction: column;
-    padding: 1rem 0;
-  }
-
-  .nav-links.active {
-    display: flex; /* show links when menu toggled */
-  }
-}
-
-/* Make logo bigger */
-.logo img {
-  height: 200px;      /* Increase size as you like */
-  width: auto;       /* Keep aspect ratio */
-  max-width: none;   /* Prevents limiting the width */
-  object-fit: contain;
-}
-
-/* Navbar container layout */
-.nav-container {
-  display: flex;
-  justify-content: space-between; /* Logo left, nav right */
-  align-items: center;
-  padding: 0 2rem;
-}
-
-/* Prevent navbar from stretching when logo grows */
-.nav-links {
-  height: 80px;        /* Fixed height */
-  min-height: 80px;
-  display: flex;
-  align-items: center;
-  padding: 0;
-  background: none;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding-left: 0;
-  flex-shrink: 0;
-}
-
-/* NAVBAR INSIDE HERO - Starts as transparent */
-.navbar {
-  width: 100%;
-  position: absolute; /* Key: Positioned *relative* to the hero */
-  top: 0;
   left: 0;
-  padding: 1.2rem 0;
-  z-index: 10;
-  background: transparent !important; /* Force transparent initially */
-  transition: all 0.3s ease;
-}
-
-/* Navbar when scrolled - BECOMES FIXED AND BLUE */
-.navbar.scrolled {
-  position: fixed; /* Key: Changes to fixed position */
-  top: 0;
-  padding: 0.5rem 0;
-  background-color: #0423c2 !important; /* Force the solid blue background */
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5); /* Optional: Adds shadow */
-}
-
-
-  </style>
-</head>
-<body>
-
-  
-
-
-  <style>
-    .headline {
-      text-align: center;
-      padding: 100px 20px 40px;
-      background: #f9f9f9;
-    }
-
-    .easy-process {
-  /* padding: 100px; */
-  padding-left: 60px;
-  padding-right: 60px;
-  text-align: center;
-  font-weight: lighter;
- 
+  width: 100%;
+  height: 80px;         /* Fixed navbar height */
+  min-height: 80px;
+  z-index: 1000;
+  background: transparent;
+  display: flex;
   align-items: center;
-  margin: auto;
-  /* width: 70%;
-  
-  padding: 50px, 0; */
-}
-.easy-process .container {
-  padding-left: 0;
-  padding-right: 0;
+  transition: box-shadow 0.3s, background 0.3s;
+
 }
 
-
-.easy-process .steps {
-  display: grid;
-  /* grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); */
-  grid-template-columns: repeat(3, 1fr); /* 3 columns */
-  grid-template-rows: repeat(2, 1fr);
-  gap: 2rem;
-  align-items: center;
-  text-align: center;
-}
-.easy-process .step {
-  text-align: center;
-  align-items: center;
-  
-}
-.easy-process .step-number {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: floralwhite;
-  margin-bottom: 1rem;
-}
-.easy-process .step h3 {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
-  color: black;
-}
-.easy-process h2{
-  color: black;
-}
-
-.easy-process .step-number img {
-  width: 100px;  /* Set consistent size */
-  height: 100px;
+/* Logo larger, but constrained by navbar height */
+.logo img {
+  max-height: 200px;    /* Large logo */
+  width: auto;
   object-fit: contain;
   display: block;
-  margin: 0 auto;
+  /* margin-top: -60px; */
 }
 
-
-.faq { padding: 80px 0; }
-  .faq h2 { text-align:center; font-size:2rem; color:#0b066d; margin-bottom:2rem; }
-
-  .faq-list { max-width:800px; margin:0 auto; }
-
-  /* FAQ Hover Effects */
-.faq-item {
-  border-bottom: 1px solid #e6e6e6;
-  padding: 1rem 0;
-  transition: background-color 0.3s ease;
-}
-
-.faq-item:hover {
-  background-color: #e3f2fd; /* Light blue background on hover */
-  padding-left: 1rem;
-  padding-right: 1rem;
-  border-radius: 8px;
-}
-
-.faq-question {
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  padding: 0;
-  font-size: 1.12rem;
-  font-weight: 600;
-  color: #222;
-  cursor: pointer;
-  display: block;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.faq-question:hover {
-  color: #2196f3; /* Blue text on hover */
-}
-
-.faq-question::after {
-  content: "+";
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.6rem;
-  color: #9035ff;
-  transition: transform 0.25s ease, color 0.3s ease;
-}
-
-.faq-question:hover::after {
-  color: #2196f3; /* Blue plus sign on hover */
-}
-
-.faq-item.active .faq-question::after {
-  content: "-";
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease, padding 0.25s ease, background-color 0.3s ease;
-  padding: 0;
-  color: #555;
-  font-size: 1rem;
-}
-
-.faq-item.active .faq-answer {
-  max-height: 500px;
-  padding-top: 0.6rem;
-  background-color: #f0f8ff; /* Very light blue for answer when active */
-}
-
-  /* small responsive tweak */
-  @media (max-width:576px) {
-    .faq h2 { font-size:1.6rem; }
-    .faq-question { font-size:1rem; }
-  }
-
-      .faq {
-  padding: 80px 0;
-}
-
-.faq h2 {
-  text-align: center;
-  font-size: 2rem;
-  color: #0b066d;
-  margin-bottom: 2rem;
-}
-
-.faq-list {
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.faq-item {
-  border-bottom: 1px solid #ddd;
-  padding: 1rem 0;
-}
-
-.faq-question {
-  width: 100%;
-  text-align: left;
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #333;
-  cursor: pointer;
-  padding: 0;
-}
-
-.faq-answer {
-  display: none;
-  padding-top: 0.5rem;
-  font-size: 1rem;
-  color: #555;
-}
-
-.faq-item.active .faq-answer {
-  display: block;
-}
-
-.faq-question:after {
-  content: "+";
-  float: right;
-  font-size: 1.5rem;
-  color: #9035ff;
-  transition: transform 0.3s;
-}
-
-.faq-item.active .faq-question:after {
-  content: "-";
-  transform: rotate(180deg);
-}
-/* Make container wider or full width */
-.container {
-  max-width: 1200px; /* or remove for 100% width */
-  margin: 0 auto;
-  padding: 0 20px;
-}
-
-/* Increase base font size */
-/* body {
-  font-size: 15px; 
-} */
-
-/* Optionally, increase section font sizes */
-.text-section p, .text-section ul,
-.split-section p, .split-section ul {
-  font-size: 1.15rem;
-}
-
-/* --- NAV LINKS TO THE RIGHT --- */
+/* Nav container: logo left, nav links right */
 .nav-container {
   display: flex;
   align-items: center;
-  justify-content: flex-end; /* Push nav links to the right */
-  padding: 0 2rem;
+  justify-content: flex-end;
   width: 100%;
+  padding: 0 2rem;
 }
 
-/* --- NAV LINKS STYLE (same as index.html) --- */
+/* Nav links to the right, aligned center */
 .nav-links {
   display: flex;
   align-items: center;
   gap: 2rem;
-  margin-left: auto;         /* Push nav links to the right */
-  align-items: center;
+  margin-left: auto;           /* Push nav links to the right */
   list-style: none;
+  height: 100%;
 }
 
-/* --- CONTACT US BUTTON STYLE (same as index.html) --- */
+/* CONTACT US button style (match index.html) */
 .nav-links a.button,
 .nav-links .button1 {
   padding: 0.5rem 1.2rem;
@@ -941,6 +350,101 @@
   transition: none;
 }
 
+/* Responsive: hamburger menu for mobile */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.logo img {
+  height: 200px;      /* Increase size as you like */
+  width: auto;       /* Keep aspect ratio */
+  max-width: none;   /* Prevents limiting the width */
+  object-fit: contain;
+}
+
+/* Navbar container layout */
+.nav-container {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: flex-end;   /* Push nav links to the right */
+  padding: 0 2rem;
+}
+
+/* Prevent navbar from stretching when logo grows */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  margin-left: auto;           /* Push nav links to the right */
+  align-items: center;
+  height: 100%;                /* Fill navbar height */
+  padding: 0;
+  background: none;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 0;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  /* .nav-links  {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    
+    flex-direction: column;
+    padding: 1rem 0;
+  } */
+
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100vw;           /* Full viewport width */
+    min-height: 100vh;      /* Full viewport height */
+    background: #000;       /* Black background */
+    flex-direction: column;
+    padding: 2rem 0;
+    z-index: 9999;          /* Ensure it overlays content */
+  }
+  .nav-links.active {
+    display: flex;
+  }
+}
+
+/* Responsive About Section */
+@media (max-width: 900px) {
+  .about-grid {
+    grid-template-columns: 1fr; /* Stack content and image vertically */
+    gap: 2rem;
+  }
+  .about-image img {
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+}
+
+.menu-toggle span {
+  width: 25px;
+  height: 3px;
+  background: #fff;
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
 @media (max-width: 768px) {
   .menu-toggle {
     display: flex;
@@ -951,408 +455,48 @@
     top: 100%;
     left: 0;
     width: 100vw;
-    background: #1a1a2e;
+    min-height: 100vh;
+    background: #000;
     flex-direction: column;
-    padding: 1rem 0;
+    padding: 2rem 0;
     z-index: 9999;
   }
   .nav-links.active {
     display: flex;
   }
 }
-
-
-      /* ===== HERO SECTION ===== */
-      .hero {
-        width: 100%;
-        height: 70vh;
-        background: url("https://plus.unsplash.com/premium_photo-1661313635217-d8d87c14fb66?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y3JlYXRpdmUlMjBzZXJ2aWNlcyUyMHByaW50fGVufDB8fDB8fHww") center/cover
-          no-repeat;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        position: relative;
-        margin-top: 0px;
-      }
-
-      .hero::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 51, 102, 0.6);/
-      }
-
-      .hero-content {
-        position: relative;
-        z-index: 2;
-        color: #fff;
-        max-width: 800px;
-        padding: 0 10px;
-      }
-
-      .hero-content h1 {
-        font-size: 2.8rem;
-        margin-bottom: 10px;
-        color: #fff;
-      }
-
-      .hero-content p {
-        font-size: 1.2rem;
-        margin-bottom: 25px;
-      }
-
-      .hero-content a {
-        background-color: #ffa500;
-        color: #fff;
-        padding: 12px 25px;
-        border-radius: 5px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: 0.3s;
-      }
-
-      .hero-content a:hover {
-        background-color: #ff8c00;
-      }
-
-      /* ===== FOOTER ===== */
-      footer {
-        background-color: #003366;
-        color: #fff;
-        text-align: center;
-        padding: 30px 8%;
-        margin-top: 50px;
-      }
-
-      footer .footer-links {
-        margin-bottom: 15px;
-      }
-
-      footer .footer-links a {
-        color: #ffa500;
-        margin: 0 10px;
-        text-decoration: none;
-        transition: 0.3s;
-      }
-
-      footer .footer-links a:hover {
-        color: #fff;
-      }
-
-      footer p {
-        font-size: 0.9rem;
-      }
-
-      /* ===== RESPONSIVE ===== */
-      @media (max-width: 768px) {
-        nav ul {
-          display: none;
-          flex-direction: column;
-          position: absolute;
-          top: 65px;
-          right: 8%;
-          background-color: #003366;
-          width: 200px;
-          text-align: right;
-          border-radius: 5px;
-          padding: 15px 0;
-        }
-
-        nav ul.active {
-          display: flex;
-        }
-
-        .menu-toggle {
-          display: block;
-        }
-
-        .hero-content h1 {
-          font-size: 2.2rem;
-        }
-
-        .hero-content p {
-          font-size: 1rem;
-        }
-      }
-
-      .services-grid {
-  background-color: #f4f6ff;
-  padding: 80px 0;
+.navbar.scrolled {
+  background: #0423c2;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
 }
 
-.services-grid .container {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2.5rem;
-  text-align: center;
-  max-width: 1200px;
-  margin: 0 auto;
-}
 
-.services-grid .grid-item img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 0px;
-  margin-bottom: 1rem;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-}
-
-.services-grid .grid-item h3 {
-  color: black;
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-}
-
-.services-grid .grid-item p {
-  color: #555;
-  font-size: 1rem;
-  line-height: 1.5;
-  padding: 0 10px;
-}
-
-/* Responsive */
-@media (max-width: 900px) {
-  .services-grid .container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-@media (max-width: 600px) {
-  .services-grid .container {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* HERO SECTION */
-.hero {
-  position: relative;
-  background: url("https://plus.unsplash.com/premium_photo-1661313635217-d8d87c14fb66?w=1600&auto=format&fit=crop&q=60") 
-    center/cover no-repeat;
-  color: #fff;
-  padding: 100px 0 80px; /* keeps a nice vertical spacing */
-}
-
-.hero::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  /* background: linear-gradient(
-    rgba(4, 35, 194, 0.6),
-    rgba(4, 35, 194, 0.3)
-  ); */
-  z-index: 0;
-}
-
-/* NAVBAR INSIDE HERO */
-.navbar {
-  width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 1.2rem 0;
-  z-index: 10;
-  background: transparent;
-}
-
-.nav-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 2rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #fff;
-  text-decoration: none;
-}
-.logo span {
-  color: #ff6b35;
-}
-
-.nav-links {
-  display: flex;
-  list-style: none;
-  gap: 2rem;
-}
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-.nav-links a:hover {
-  color: #ff6b35;
-}
-
-/* HERO CONTENT */
-.hero-content {
-  position: relative;
-  z-index: 1;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 120px 20px 0;
-}
-
-.hero-content h1 {
-  font-size: 2.8rem;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-}
-
-.hero-content p {
-  font-size: 1.2rem;
-  margin-bottom: 1.5rem;
-}
-
-.btn-primary {
-  display: inline-block;
-  padding: 12px 30px;
-  background: #ff6b35;
-  color: #fff;
-  border-radius: 8px;
-  text-decoration: none;
-  transition: background 0.3s;
-}
-.btn-primary:hover {
-  background: #cc542a;
-}
-
-/* MOBILE NAV */
-.menu-toggle {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-}
-.menu-toggle span {
-  width: 25px;
-  height: 3px;
-  background: #fff;
-  margin: 4px 0;
-}
-
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: flex;
-  }
-
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    background: rgba(4, 35, 194, 0.95);
-    position: absolute;
-    top: 100%;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    padding: 1rem 0;
-  }
-
-  .nav-links.active {
-    display: flex;
-  }
-}
-
-/* ===== MAKE PAGE CONTENT SMALLER & MORE COMPACT ===== */
-
-/* Reduce the base font size site-wide */
-body {
-  font-size: 14px;   /* default is 16px — reduces all text slightly */
-  line-height: 1.5;  /* keeps readability */
-}
-
-/* Make headings slightly smaller for balance */
-h1 {
-  font-size: 2.2rem;
-}
-h2 {
-  font-size: 1.6rem;
-}
-h3 {
-  font-size: 1.1rem;
-}
-
-/* Adjust hero text size so it doesn’t dominate */
-.hero-content h1 {
-  font-size: 2.2rem;
-}
-.hero-content p {
-  font-size: 1rem;
-}
-
-/* Slightly tighten general section paddings */
-section {
-  padding: 50px 0; /* previously 70–100px */
-}
-
-/* Reduce CTA and testimonial font sizes */
-.cta-section h2 {
-  font-size: 1.8rem;
-}
-.cta-section p {
-  font-size: 1rem;
-}
-.testimonial blockquote {
-  font-size: 1rem;
-}
-
-/* Reduce service grid spacing and text */
-.services-grid .grid-item h3 {
-  font-size: 1.1rem;
-}
-.services-grid .grid-item p {
-  font-size: 0.95rem;
-}
-
-/* FAQ smaller typography */
-.faq-question {
-  font-size: 1rem;
-}
-.faq-answer {
-  font-weight: 600;
-}
-
-/* Adjust container width slightly wider for less zoom */
-.container {
-  max-width: 1100px;
-}
 
 
 
 
   </style>
+</head>
 
 <body>
+  
+ <nav class="navbar" id="navbar">
 
-  <nav class="navbar" id="navbar">
       <div class="logo-container">
           <!-- <img src="images/VIZIBO LOGO F1.pdf (1).png" alt=""> -->
         <a class="logo" href="index.html"
-          ><img src="images/VIZIBO LOGO F1.pdf (1).png" alt="vizibo logo" loading="lazy"/></a>
+          ><img src="images/VIZIBO LOGO F1.pdf (1).png" alt=""/></a>
 
       </div>
-
       <div class="nav-container">
-        
-        
-        
-          
+        <a class="logo" href="index.html"
+          ><img src="images/VIZIBO LOGO F1_page-0001.jpg" alt=""
+        /></a>
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html">HOME</a></li>
-          <li><a href="#about">ABOUT US</a></li>
-          <li><a href="#solutions">SOLUTIONS</a></li>
-          <li><a href="#projects">PROJECTS</a></li>
+          <li><a href="index.html">ABOUT US</a></li>
+          <li><a href="index.html">SOLUTIONS</a></li>
+          <li><a href="index.html">PROJECTS</a></li>
           <li><a href="#footer" class="button button1">CONTACT US</a></li>
         </ul>
         <div class="menu-toggle" id="menuToggle">
@@ -1363,431 +507,216 @@ section {
       </div>
     </nav>
 
-    <section class="hero">
 
-      <div class="hero-content">
+
+
+  <section class="hero">
+    <div class="hero-content">
       <h1>Event Branding</h1>
-      <p>We design, produce, and deploy event branding across print, digital, and on-screen displays—so your guests see one story everywhere</p>
+      <p>We design, produce, and deploy event branding across print, digital, and on-screen displays—so your guests see one story everywhere.</p>
       <a href="#printing" class="btn-primary">Learn More</a>
-    </div>
-  
-  
-</section>
-  
-
-
-
-    
-
-
-
-<h3 style="text-align: center;">What We Brand</h3>
-    <section class="services-grid" id="printing">
-      
-  <div class="container">
-    
-    <div class="grid-item">
-      <img src="https://images.unsplash.com/photo-1539964604210-db87088e0c2c?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dmVudWUlMjAlMjYlMjBzdGFnZXxlbnwwfHwwfHx8MA%3D%3D" alt="Design Strategy">
-      <h3>Venue & Stage</h3>
-        <p font-weight: light;>
-          <I>Inspur • LC3.9NT</I>
-        </p>
-
-        <div class="specs">
-    <h4>Info</h4>
-    <ul>
-      <li>main backdrops</li>
-  <li>step-and-repeat walls</li>
-  <li>stage skirting</li>
-  <li>lectern skins</li>
-  <li>side banners</li>
-    </ul>
-  </div>
-    </div>
-    <div class="grid-item">
-      <img src="https://images.unsplash.com/photo-1758578484467-52d57a339904?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8d2F5ZmluZGluZyUyMCUyNiUyMHNwYWNlc3xlbnwwfHwwfHx8MA%3D%3D" alt="Event Planning">
-      <h3>Wayfinding & Spaces</h3>
-        <p font-weight: light;>
-          <I>Inspur • LC3.9NT</I>
-        </p>
-
-        <div class="specs">
-    <h4>Info</h4>
-    <ul>
-      <li>directional signage</li>
-  <li>zone IDs</li>
-  <li>floor decals</li>
-  <li>registration desks</li>
-  <li>help desks</li>
-    </ul>
-  </div>
-    </div>
-
-    <div class="grid-item">
-      <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" alt="Photography">
-      <h3>Attendee Items</h3>
-        <p font-weight: light;>
-          <I>Inspur • LC3.9NT</I>
-        </p>
-
-        <div class="specs">
-    <h4>Info</h4>
-    <ul>
-      <li>badges</li>
-  <li>lanyards</li>
-  <li>wristbands</li>
-  <li>tote bags</li>
-  <li>programs</li>
-  <li>menu boards</li>
-    </ul>
-  </div>
-    </div>
-    <div class="grid-item">
-      <img src="https://images.unsplash.com/photo-1581343117330-0104b39ce4c9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTZ8fGRpZ2l0YWwlMjAlMjYlMjBzY3JlZW5zfGVufDB8fDB8fHww" alt="Graphic Design">
-      <h3>Digital & Screens</h3>
-        <p font-weight: light;>
-          <I>Inspur • LC3.9NT</I>
-        </p>
-
-        <div class="specs">
-    <h4>Info</h4>
-    <ul>
-       <li>LED walls</li>
-  <li>kiosks</li>
-  <li>touch screens</li>
-  <li>digital agendas</li>
-  <li>countdowns</li>
-  <li>lower-thirds</li>
-  <li>sponsor loops</li>
-    </ul>
-  </div>
-    </div>
-    <div class="grid-item">
-      <img src="https://plus.unsplash.com/premium_photo-1661780612519-42eabd9a96c9?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cGhvdG8lMjAlMjYlMjBzb2NpYWx8ZW58MHx8MHx8fDA%3D" alt="Graphic Design">
-      <h3>Photo & Social</h3>
-        <p font-weight: light;>
-          <I>Inspur • LC3.9NT</I>
-        </p>
-
-        <div class="specs">
-    <h4>Info</h4>
-    <ul>
-      <li>media walls</li>
-  <li>photo booths</li>
-  <li>branded frames</li>
-  <li>AR filters</li>
-  <li>QR landing pages</li>
-    </ul>
-  </div>
-    </div>
-    <div class="grid-item">
-      <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" alt="Graphic Design">
-      <h3>Experiential Touchpoints</h3>
-        <p font-weight: light;>
-          <I>Inspur • LC3.9NT</I>
-        </p>
-
-        <div class="specs">
-    <h4>Info</h4>
-    <ul>
-      <li>demo pods</li>
-  <li>product corners</li>
-  <li>interactive zones</li>
-  <li>expo booths</li>
-    </ul>
-  </div>
-    </div>
-  </div>
-</section>
-
-
-
-
-  <section class="easy-process">
-  <div class="container">
-    <h2>How It Works</h2> 
-    <div class="steps">
-      <div class="step">
-        <div class="step-number"><img src="https://cdn-icons-png.flaticon.com/128/10822/10822534.png" alt=""></div>
-        <h3>1. Brief & Brand Intake</h3>
-        <p>objectives, audience, venue plan, sponsors.</p>
-      </div>
-      <div class="step">
-        <div class="step-number"><img src="https://cdn-icons-png.flaticon.com/128/10224/10224544.png" alt=""></div>
-        <h3>2. Concept & Key Visual</h3>
-        <p> 2–3 routes; pick one and refine.</p>
-      </div>
-      <div class="step">
-        <div class="step-number"><img src="https://cdn-icons-png.flaticon.com/128/5084/5084689.png" alt=""></div>
-        <h3>3. Rollout</h3>
-        <p>adapt to screens, signage, print, digital.</p>
-      </div>
-      <div class="step">
-        <div class="step-number"><img src="https://cdn-icons-png.flaticon.com/128/4035/4035077.png" alt=""></div>
-        <h3>4. Pre-flight & Production</h3>
-        <p>print specs, color proofs, file QC.</p>
-      </div>
-      <div class="step">
-        <div class="step-number"><img src="https://cdn-icons-png.flaticon.com/128/2285/2285485.png" alt=""></div>
-        <h3>5. Deploy</h3>
-        <p>Install, screen content load, event-day checks.</p>
-      </div>
-      <div class="step">
-        <div class="step-number"><img src="https://cdn-icons-png.flaticon.com/128/11314/11314429.png" alt=""></div>
-        <h3>6. Post-Event </h3>
-        <p>media wall, thank-you creatives, impact deck.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="divider-dots">
-  <div class="dots"></div>
-</section>
-
-<!-- DIGITAL SIGNAGE RENTAL FAQ -->
-
-<!-- DIGITAL SIGNAGE RENTAL FAQ (replace existing FAQ block) -->
-<section class="faq">
-  <div class="container">
-    <h2>FAQ</h2>
-
-    <div class="faq-list">
-
-      <div class="faq-item">
-        <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq1" id="faq1-btn">
-          Can you custom-brand our kiosks and screens?
-        </button>
-        <div id="faq1" class="faq-answer" role="region" aria-labelledby="faq1-btn">
-          <p>
-            Yes. We design and print vinyl wraps and create on-screen content to match—registration UIs, agendas, sponsor loops, and more.
-
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq2" id="faq2-btn">
-          Do you handle installation?
-        </button>
-        <div id="faq2" class="faq-answer" role="region" aria-labelledby="faq2-btn">
-          <p>
-            Yes. We can produce and install, or work with your venue contractor using our install maps.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq3" id="faq3-btn">
-We have no brand—can you create one just for the event?        </button>
-        <div id="faq3" class="faq-answer" role="region" aria-labelledby="faq3-btn">
-          <p>
-Absolutely. We’ll craft a mini-identity (colors, type, patterns) that fits your theme.
-          </p>
-        </div>
-      </div>
-
-      <div class="faq-item">
-        <button type="button" class="faq-question" aria-expanded="false" aria-controls="faq4" id="faq4-btn">
-Can sponsors be integrated cleanly?        </button>
-        <div id="faq4" class="faq-answer" role="region" aria-labelledby="faq4-btn">
-          <p>
-Yes—tiered templates keep sponsor placement consistent and elegant.          </p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-  <!-- ==================== DESIGN ==================== -->
-  <!-- <section class="split-section alt">
-    <div class="container split-grid">
-      <div class="image-col">
-        <img src="https://meetingtomorrow.com/wp-content/uploads/2024/07/creative-design-500.jpg" alt="Design" />
-      </div>
-      <div class="text-col">
-        <h2>Design</h2>
-        <p>We develop cohesive visuals that activate your event's identity across mediums:</p>
-        <ul>
-          <li>Concepting</li>
-          <li>Stage & scenic design</li>
-          <li>Graphic design</li>
-          <li>Event logos & branding</li>
-          <li>Environmental design</li>
-          <li>Signage & print materials</li>
-          <li>Presentation & exhibit design</li>
-          <li>Website / digital assets</li>
-        </ul>
-      </div>
-    </div>
-  </section> -->
-
-  <!-- ==================== CONTENT ==================== -->
-  <!-- <section class="split-section">
-    <div class="container split-grid">
-      <div class="text-col">
-        <h2>Content</h2>
-        <p>If you can see it, hear it, or experience it, we create it. From video to live interviews to motion graphics and social content, we bring your stories to life.</p>
-        <ul>
-          <li>Scriptwriting</li>
-          <li>Storyboarding</li>
-          <li>Opening & transition videos</li>
-          <li>Onsite video production & interviews</li>
-          <li>Photography / post-event reels</li>
-          <li>Social media content & live feeds</li>
-        </ul>
-      </div>
-      <div class="image-col">
-        <img src="https://meetingtomorrow.com/wp-content/uploads/2024/07/creative-content-500.jpg" alt="Content" />
-      </div>
-    </div>
-  </section> -->
-
-  <!-- ==================== TESTIMONIAL ==================== -->
-  <section class="testimonial">
-    <div class="container">
-      <blockquote>
-        "The team has been second to none. They show up to every meeting with great ideas and everything we could possibly ask for, even when we throw curveballs at the last minute."
-      </blockquote>
-      <cite>— Danielle Clark, VP of Corporate Marketing, RPM Living</cite>
     </div>
   </section>
 
-  <!-- ==================== CTA ==================== -->
+  <section class="services-grid" id="printing">
+    <div class="container">
+      <div class="grid-item"><img src="https://images.unsplash.com/photo-1539964604210-db87088e0c2c?w=600" alt="">
+        <h3>Venue & Stage</h3>
+        <h3>Interactive Screen</h3>
+        <p font-weight: light;>
+          <I>65 inch ; All-in-one conference machine • Inspur • IB65GL -B</I>
+        </p>
+
+        <div class="specs">
+    <h4>Info</h4>
+    <ul>
+      <li>Ultra-narrow bezel with anti-glare tempered glass and eye-protection backlight</li>
+      <li>8-core CPU + GPU with Android 11.0 for smooth performance</li>
+      <li>±1mm infrared touch, dual-pen multi-color writing support</li>
+      <li>Built-in 2.1 channel speakers, 8-mic array & 48MP auto-focus camera</li>
+      <li>Wireless projection with reverse touch, split-screen & enterprise intelligent platform</li>
+
+    </ul>
+  </div>
+      
+      </div>
+      <div class="grid-item"><img src="https://images.unsplash.com/photo-1758578484467-52d57a339904?w=600" alt="">
+        <h3>Wayfinding & Spaces</h3>
+        <h3>Interactive Screen</h3>
+        <p font-weight: light;>
+          <I>65 inch ; All-in-one conference machine • Inspur • IB65GL -B</I>
+        </p>
+
+        <div class="specs">
+    <h4>Info</h4>
+    <ul>
+      <li>Ultra-narrow bezel with anti-glare tempered glass and eye-protection backlight</li>
+      <li>8-core CPU + GPU with Android 11.0 for smooth performance</li>
+      <li>±1mm infrared touch, dual-pen multi-color writing support</li>
+      <li>Built-in 2.1 channel speakers, 8-mic array & 48MP auto-focus camera</li>
+      <li>Wireless projection with reverse touch, split-screen & enterprise intelligent platform</li>
+
+    </ul>
+  </div>
+      </div>
+      <div class="grid-item"><img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" alt=""><h3>Attendee Items</h3>
+        <h3>Interactive Screen</h3>
+        <p font-weight: light;>
+          <I>65 inch ; All-in-one conference machine • Inspur • IB65GL -B</I>
+        </p>
+
+        <div class="specs">
+    <h4>Info</h4>
+    <ul>
+      <li>Ultra-narrow bezel with anti-glare tempered glass and eye-protection backlight</li>
+      <li>8-core CPU + GPU with Android 11.0 for smooth performance</li>
+      <li>±1mm infrared touch, dual-pen multi-color writing support</li>
+      <li>Built-in 2.1 channel speakers, 8-mic array & 48MP auto-focus camera</li>
+      <li>Wireless projection with reverse touch, split-screen & enterprise intelligent platform</li>
+
+    </ul>
+  </div>
+      </div>
+      <div class="grid-item"><img src="https://images.unsplash.com/photo-1581343117330-0104b39ce4c9?w=600" alt="">
+        <h3>Digital & Screens</h3>
+        <h3>Interactive Screen</h3>
+        <p font-weight: light;>
+          <I>65 inch ; All-in-one conference machine • Inspur • IB65GL -B</I>
+        </p>
+
+        <div class="specs">
+    <h4>Info</h4>
+    <ul>
+      <li>Ultra-narrow bezel with anti-glare tempered glass and eye-protection backlight</li>
+      <li>8-core CPU + GPU with Android 11.0 for smooth performance</li>
+      <li>±1mm infrared touch, dual-pen multi-color writing support</li>
+      <li>Built-in 2.1 channel speakers, 8-mic array & 48MP auto-focus camera</li>
+      <li>Wireless projection with reverse touch, split-screen & enterprise intelligent platform</li>
+
+    </ul>
+  </div>
+      </div>
+      <div class="grid-item"><img src="https://plus.unsplash.com/premium_photo-1661780612519-42eabd9a96c9?w=600" alt="">
+        <h3>Photo & Social</h3>
+        <h3>Interactive Screen</h3>
+        <p font-weight: light;>
+          <I>65 inch ; All-in-one conference machine • Inspur • IB65GL -B</I>
+        </p>
+
+        <div class="specs">
+    <h4>Info</h4>
+    <ul>
+      <li>Ultra-narrow bezel with anti-glare tempered glass and eye-protection backlight</li>
+      <li>8-core CPU + GPU with Android 11.0 for smooth performance</li>
+      <li>±1mm infrared touch, dual-pen multi-color writing support</li>
+      <li>Built-in 2.1 channel speakers, 8-mic array & 48MP auto-focus camera</li>
+      <li>Wireless projection with reverse touch, split-screen & enterprise intelligent platform</li>
+
+    </ul>
+  </div>
+      </div>
+      <div class="grid-item"><img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" alt="">
+        <h3>Experiential Touchpoints</h3>
+        <h3>Interactive Screen</h3>
+        <p font-weight: light;>
+          <I>65 inch ; All-in-one conference machine • Inspur • IB65GL -B</I>
+        </p>
+
+        <div class="specs">
+    <h4>Info</h4>
+    <ul>
+      <li>Ultra-narrow bezel with anti-glare tempered glass and eye-protection backlight</li>
+      <li>8-core CPU + GPU with Android 11.0 for smooth performance</li>
+      <li>±1mm infrared touch, dual-pen multi-color writing support</li>
+      <li>Built-in 2.1 channel speakers, 8-mic array & 48MP auto-focus camera</li>
+      <li>Wireless projection with reverse touch, split-screen & enterprise intelligent platform</li>
+
+    </ul>
+  </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="easy-process">
+    <div class="container">
+      <h2>How It Works</h2>
+      <div class="steps">
+        <div class="step"><img src="https://cdn-icons-png.flaticon.com/128/10822/10822534.png"><h3>Brief & Brand Intake</h3><p>Objectives, audience, venue plan, sponsors.</p></div>
+        <div class="step"><img src="https://cdn-icons-png.flaticon.com/128/10224/10224544.png"><h3>Concept & Key Visual</h3><p>2–3 routes; pick one and refine.</p></div>
+        <div class="step"><img src="https://cdn-icons-png.flaticon.com/128/5084/5084689.png"><h3>Rollout</h3><p>Adapt to screens, signage, print, digital.</p></div>
+        <div class="step"><img src="https://cdn-icons-png.flaticon.com/128/4035/4035077.png"><h3>Pre-flight & Production</h3><p>Print specs, color proofs, file QC.</p></div>
+        <div class="step"><img src="https://cdn-icons-png.flaticon.com/128/2285/2285485.png"><h3>Deploy</h3><p>Install, screen content load, event-day checks.</p></div>
+        <div class="step"><img src="https://cdn-icons-png.flaticon.com/128/11314/11314429.png"><h3>Post-Event</h3><p>Media wall, thank-you creatives, impact deck.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="container">
+      <h2>FAQ</h2>
+      <div class="faq-list">
+        <div class="faq-item"><button class="faq-question">Can you custom-brand our kiosks and screens?</button><div class="faq-answer"><p>Yes. We design and print vinyl wraps and on-screen content to match—registration UIs, agendas, sponsor loops, and more.</p></div></div>
+        <div class="faq-item"><button class="faq-question">Do you handle installation?</button><div class="faq-answer"><p>Yes. We can produce and install, or work with your venue contractor using our install maps.</p></div></div>
+        <div class="faq-item"><button class="faq-question">Can you create a temporary brand for our event?</button><div class="faq-answer"><p>Absolutely. We’ll craft a mini-identity (colors, type, patterns) that fits your theme.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonial">
+    <div class="container">
+      <blockquote>"The team has been second to none. They show up to every meeting with great ideas and everything we could possibly ask for."</blockquote>
+      <cite>— Danielle Clark, VP of Corporate Marketing</cite>
+    </div>
+  </section>
+
   <section class="cta-section" id="contact">
     <div class="container">
       <h2>Ready to brand your event?</h2>
-      <a href="" class="btn-primary">Get A Quote</a>
+      <a href="#" class="btn-primary">Get A Quote</a>
     </div>
   </section>
 
-  <!-- ==================== FOOTER ==================== -->
-  <footer class="footer">
+  <footer class="footer" id="footer">
     <div class="container">
       <div class="row">
-        <div class="footer-col">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="#about">About Us</a></li>
-            <li><a href="#solutions">Solutions</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#">Contact Us</a></li>
-          </ul>
+        <div class="footer-col"><h4>Quick Links</h4>
+          <ul><li><a href="#">About Us</a></li><li><a href="#">Solutions</a></li><li><a href="#">Projects</a></li><li><a href="#">Contact</a></li></ul>
         </div>
-        <!-- <style>
-          .footer-col{
-            color: #fff;
-          }
-        </style> -->
-        <div class="footer-col">
-              <h4>Location</h4>
-              <div class="contact-item">
-                <i class="fas fa-map-marker-alt"></i>
-                <span>07 Mpaka Rd, Nairobi</span> <br><br>
-              </div>
-              <div class="contact-item">
-                <i class="fas fa-phone"></i>
-                <span>+254 795 332 766</span><br><br>
-              </div>
-              <div class="contact-item">
-                <i class="fas fa-envelope"></i>
-                <span>query@printduka.co.ke</span>
-              </div>
-            </div>
-        <div class="footer-col">
-              <h4>follow us</h4>
-              <div class="social-links">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-              </div>
-            </div>
+        <div class="footer-col"><h4>Contact</h4>
+          <p><i class="fas fa-map-marker-alt"></i> 07 Mpaka Rd, Nairobi</p>
+          <p><i class="fas fa-phone"></i> +254 795 332 766</p>
+          <p><i class="fas fa-envelope"></i> query@printduka.co.ke</p>
+        </div>
+        <div class="footer-col"><h4>Follow Us</h4>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+        </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 Vizibo Events Solutions by Print Duka. All rights reserved.</p>
-      </div>
+      <div class="footer-bottom"><p>&copy; 2025 Vizibo Events Solutions by Print Duka. All rights reserved.</p></div>
     </div>
   </footer>
 
   <script>
-  const menuToggle = document.getElementById('menuToggle');
-  const navLinks = document.getElementById('navLinks');
+    const menuToggle = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+    menuToggle.addEventListener('click', () => navLinks.classList.toggle('active'));
 
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-  });
+    window.addEventListener('scroll', () => {
+      const navbar = document.getElementById('navbar');
+      navbar.classList.toggle('scrolled', window.scrollY > 50);
+    });
 
-
-  window.addEventListener('scroll', () => {
-  // Use the class 'navbar' or an ID if available
-  const navbar = document.querySelector('.navbar'); 
-  if (window.scrollY > 50) {
-    navbar.classList.add('scrolled');
-  } else {
-    navbar.classList.remove('scrolled');
-  }
-});
-  // Optional: shrink navbar on scroll
-  window.addEventListener('scroll', () => {
-    const navbar = document.getElementById('navbar');
-    if (window.scrollY > 50) {
-      navbar.classList.add('scrolled');
-    } else {
-      navbar.classList.remove('scrolled');
-    }
-  });
-
-  document.addEventListener('DOMContentLoaded', function () {
-    const items = document.querySelectorAll('.faq-item');
-    const buttons = document.querySelectorAll('.faq-question');
-
-    buttons.forEach(button => {
-      button.addEventListener('click', function (e) {
-        // prevent default just in case (also protects if inside a form)
-        e.preventDefault();
-
-        const currentItem = this.closest('.faq-item');
-        const answer = currentItem.querySelector('.faq-answer');
-        const isActive = currentItem.classList.contains('active');
-
-        // Close all other items (accordion behavior). Remove this loop if you want multiple open.
-        items.forEach(i => {
-          if (i !== currentItem) {
-            i.classList.remove('active');
-            const btn = i.querySelector('.faq-question');
-            btn.setAttribute('aria-expanded', 'false');
-            const ans = i.querySelector('.faq-answer');
-            ans.style.maxHeight = null;
-          }
-        });
-
-        if (isActive) {
-          // close current
-          currentItem.classList.remove('active');
-          this.setAttribute('aria-expanded', 'false');
-          answer.style.maxHeight = null;
-        } else {
-          // open current
-          currentItem.classList.add('active');
-          this.setAttribute('aria-expanded', 'true');
-
-          // set exact maxHeight for smooth transition (avoids guessing)
-          answer.style.maxHeight = answer.scrollHeight + 'px';
-        }
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        item.classList.toggle('active');
       });
     });
 
-    // If you want to have the first item open on load, uncomment:
-    // if (items[0]) { items[0].querySelector('.faq-question').click(); }
-  });
-
-
-
-  
-</script>
-
-
+    
+  </script>
 </body>
 </html>
