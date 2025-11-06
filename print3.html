@@ -528,7 +528,7 @@
       content: "";
       position: absolute;
       top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(0, 0, 0, 0.5);
+      /* background: rgba(0, 0, 0, 0.5); */
       z-index: 0;
     }
     .hero-content {
@@ -1057,17 +1057,12 @@
 <body>
   
  <nav class="navbar" id="navbar">
-
       <div class="logo-container">
-          <!-- <img src="images/VIZIBO LOGO F1.pdf (1).png" alt=""> -->
-        <a class="logo" href="index.html"
-          ><img src="images/VIZIBO LOGO F1.pdf (1).png" alt=""/></a>
-
+        <a class="logo" href="index.html">
+          <img src="images/VIZIBO LOGO F1.pdf (1).png" alt=""/>
+        </a>
       </div>
       <div class="nav-container">
-        <a class="logo" href="index.html"
-          ><img src="images/VIZIBO LOGO F1_page-0001.jpg" alt=""
-        /></a>
         <ul class="nav-links" id="navLinks">
           <li><a href="index.html">HOME</a></li>
           <li><a href="index.html">ABOUT US</a></li>
@@ -1075,11 +1070,11 @@
           <li><a href="index.html">PROJECTS</a></li>
           <li><a href="#footer" class="button button1">CONTACT US</a></li>
         </ul>
-        <div class="menu-toggle" id="menuToggle">
+        <button class="menu-toggle" id="menuToggle" type="button" aria-label="Toggle navigation menu">
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
       </div>
     </nav>
 
@@ -1090,7 +1085,7 @@
     <div class="hero-content">
       <h1>Event Branding</h1>
       <p>We design, produce, and deploy event branding across print, digital, and on-screen displays—so your guests see one story everywhere.</p>
-      <a href="#printing" class="btn-primary">Learn More</a>
+      <a href="#services-section" class="btn-primary">Learn More</a>
     </div>
   </section>
   <br><br>
@@ -1120,7 +1115,7 @@
   </section> -->
 
   <!-- ==================== SERVICES SECTION ==================== -->
-  <section class="services-section">
+  <section class="services-section" id="services-section">
     <div class="container">
       <div class="services-header">
         <h2>What We Brand</h2>
@@ -1414,7 +1409,9 @@
     const navLinks = document.getElementById('navLinks');
     const navbar = document.getElementById('navbar');
     
-    menuToggle.addEventListener('click', () => {
+    menuToggle.addEventListener('click', (e) => {
+      e.preventDefault(); // Prevent default behavior
+      e.stopPropagation(); // Stop event bubbling
       menuToggle.classList.toggle('active');
       navLinks.classList.toggle('active');
       document.body.style.overflow = navLinks.classList.contains('active') ? 'hidden' : '';
@@ -1443,6 +1440,12 @@
     // Add animation delay to nav links
     navLinks.querySelectorAll('li').forEach((link, index) => {
       link.style.transitionDelay = `${index * 0.1}s`;
+    });
+
+    // Prevent menu toggle from triggering navigation
+    document.querySelector('.menu-toggle').addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
     });
   </script>
 </body>
