@@ -74,32 +74,7 @@
       margin: 3px 0;
     }
 
-    /* HERO */
-    .hero {
-      position: relative;
-      background: url("https://plus.unsplash.com/premium_photo-1661313635217-d8d87c14fb66?w=1600&auto=format&fit=crop&q=60") center/cover no-repeat;
-      color: #fff;
-      height: 70vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 0 1rem;
-    }
-    .hero::before {
-      content: "";
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: rgba(4, 35, 194, 0.6);
-      z-index: 0;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 700px;
-    }
-    .hero-content h1 { font-size: 2rem; margin-bottom: 0.5rem; }
-    .hero-content p { font-size: 1rem; margin-bottom: 1rem; }
+    
     .btn-primary {
       background: #ff6b35;
       color: #fff;
@@ -472,6 +447,366 @@
 
 
 
+    /* ==================== HERO SECTION ==================== */
+.hero-section {
+  padding: 140px 0 80px;
+  background: linear-gradient(135deg, #e8f4ff 0%, #f0f7ff 100%);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.hero-content {
+  max-width: 600px;
+}
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #e3f2ff;
+  color: #1a73e8;
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  margin-bottom: 30px;
+  font-weight: 500;
+}
+.hero-badge i {
+  font-size: 1rem;
+}
+.hero-section h1 {
+  font-size: 3.5rem;
+  line-height: 1.2;
+  margin-bottom: 30px;
+  color: #1a1a2e;
+}
+.hero-section h1 .highlight {
+  color: #1a73e8;
+  display: block;
+}
+.hero-section p {
+  font-size: 1.15rem;
+  color: #666;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background: #1a73e8;
+  color: #fff;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s;
+  border: none;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background: #1557b0;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(26, 115, 232, 0.3);
+}
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 32px;
+  background: transparent;
+  color: #1a73e8;
+  border: 2px solid #1a73e8;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+.btn-secondary:hover {
+  background: #1a73e8;
+  color: #fff;
+}
+.hero-image {
+  position: relative;
+}
+.hero-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+  border: 8px solid #1a73e8;
+}
+
+/* ==================== STATS SECTION ==================== */
+.stats-section {
+  background: linear-gradient(135deg, #1a73e8 0%, #1557b0 100%);
+  padding: 60px 0;
+  color: #fff;
+}
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  text-align: center;
+}
+.stat-item h3 {
+  font-size: 3rem;
+  margin-bottom: 10px;
+  color: #fff;
+  font-weight: 700;
+}
+.stat-item p {
+  font-size: 1rem;
+  opacity: 0.95;
+  margin: 0;
+}
+
+/* ==================== SERVICES SECTION ==================== */
+.services-section {
+  padding: 100px 0;
+  background: #f8f9fa;
+}
+.services-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.services-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #1a1a2e;
+}
+.services-header p {
+  font-size: 1.1rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+.service-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+}
+.service-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+.service-image {
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+.service-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.service-card:hover .service-image img {
+  transform: scale(1.1);
+}
+.service-content {
+  padding: 30px;
+}
+.service-content h3 {
+  font-size: 1.4rem;
+  margin-bottom: 15px;
+  color: #1a1a2e;
+}
+.service-content p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ==================== FEATURED SECTION ==================== */
+.featured-section {
+  padding: 100px 0;
+  background: #f8f9fa;
+}
+.featured-header {
+  text-align: center;
+  margin-bottom: 60px;
+}
+.featured-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #1a1a2e;
+}
+.featured-header p {
+  font-size: 1.1rem;
+  color: #666;
+}
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 30px;
+}
+.project-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+}
+.project-image {
+  width: 100%;
+  height: 280px;
+  overflow: hidden;
+}
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s;
+}
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+.project-content {
+  padding: 25px;
+}
+.project-tag {
+  display: inline-block;
+  color: #1a73e8;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+.project-content h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: #1a1a2e;
+}
+.project-content p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+}
+
+/* ==================== WHY CHOOSE SECTION ==================== */
+.why-choose-section {
+  padding: 100px 0;
+  background: #fff;
+}
+.why-choose-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.why-choose-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: #1a1a2e;
+}
+.why-choose-content > p {
+  font-size: 1.05rem;
+  color: #666;
+  margin-bottom: 40px;
+  line-height: 1.7;
+}
+.reason-item {
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+.reason-icon {
+  flex-shrink: 0;
+  width: 24px;
+  height: 24px;
+  background: #e3f2ff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a73e8;
+  font-size: 14px;
+}
+.reason-text h4 {
+  font-size: 1.15rem;
+  margin-bottom: 8px;
+  color: #1a1a2e;
+}
+.reason-text p {
+  font-size: 0.95rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+.why-choose-image {
+  position: relative;
+}
+.why-choose-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  border: 8px solid #1a73e8;
+}
+
+/* ==================== RESPONSIVE ADJUSTMENTS ==================== */
+@media (max-width: 1024px) {
+  .hero-container,
+  .why-choose-container {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+  .hero-buttons {
+    justify-content: center;
+  }
+  .services-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .reason-item {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (max-width: 768px) {
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .services-grid,
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 574px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
 
 
 
@@ -510,133 +845,126 @@
 
 
 
-  <section class="hero">
-    <div class="hero-content">
-      <h1>Event Branding</h1>
-      <p>We design, produce, and deploy event branding across print, digital, and on-screen displays—so your guests see one story everywhere.</p>
-      <a href="#printing" class="btn-primary">Learn More</a>
+  <section class="hero-section">
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-star"></i>
+          Premium Event Branding Services
+        </div>
+        <h1>
+          Transform Your Events with 
+          <span class="highlight">Stunning Branding</span>
+        </h1>
+        <p>Create unforgettable experiences with our comprehensive event branding solutions. From concept to execution, we bring your vision to life with creativity and precision.</p>
+        <div class="hero-buttons">
+          <a href="#contact" class="btn-primary">
+            Start Your Project
+            <i class="fas fa-arrow-right"></i>
+          </a>
+          <a href="#projects" class="btn-secondary">
+            View Portfolio
+          </a>
+        </div>
+      </div>
+      <div class="hero-image">
+        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop" alt="Event Branding" />
+      </div>
     </div>
   </section>
 
-  <section class="services-grid" id="printing">
+  <!-- ==================== STATS SECTION ==================== -->
+  <section class="stats-section">
     <div class="container">
-      <div class="grid-item"><img src="https://images.unsplash.com/photo-1539964604210-db87088e0c2c?w=600" alt="">
-        <h3>Venue & Stage</h3>
-        <h3>Interactive Screen</h3>
-        <p font-weight: light;>
-          <I>65 inch ; All-in-one conference machine • Inspur • IB65GL -B</I>
-        </p>
-
-        <div class="specs">
-    <h4>Info</h4>
-    <ul>
-      <li>Ultra-narrow bezel with anti-glare tempered glass and eye-protection backlight</li>
-      <li>8-core CPU + GPU with Android 11.0 for smooth performance</li>
-      <li>±1mm infrared touch, dual-pen multi-color writing support</li>
-      <li>Built-in 2.1 channel speakers, 8-mic array & 48MP auto-focus camera</li>
-      <li>Wireless projection with reverse touch, split-screen & enterprise intelligent platform</li>
-
-    </ul>
-  </div>
-      
-      </div>
-      <div class="grid-item"><img src="https://images.unsplash.com/photo-1758578484467-52d57a339904?w=600" alt="">
-        <h3>Wayfinding & Spaces</h3>
-        <h3>Interactive Screen</h3>
-        <p font-weight: light;>
-          <I>65 inch ; All-in-one conference machine • Inspur • IB65GL -B</I>
-        </p>
-
-        <div class="specs">
-    <h4>Info</h4>
-    <ul>
-      <li>Ultra-narrow bezel with anti-glare tempered glass and eye-protection backlight</li>
-      <li>8-core CPU + GPU with Android 11.0 for smooth performance</li>
-      <li>±1mm infrared touch, dual-pen multi-color writing support</li>
-      <li>Built-in 2.1 channel speakers, 8-mic array & 48MP auto-focus camera</li>
-      <li>Wireless projection with reverse touch, split-screen & enterprise intelligent platform</li>
-
-    </ul>
-  </div>
-      </div>
-      <div class="grid-item"><img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" alt=""><h3>Attendee Items</h3>
-        <h3>Interactive Screen</h3>
-        <p font-weight: light;>
-          <I>65 inch ; All-in-one conference machine • Inspur • IB65GL -B</I>
-        </p>
-
-        <div class="specs">
-    <h4>Info</h4>
-    <ul>
-      <li>Ultra-narrow bezel with anti-glare tempered glass and eye-protection backlight</li>
-      <li>8-core CPU + GPU with Android 11.0 for smooth performance</li>
-      <li>±1mm infrared touch, dual-pen multi-color writing support</li>
-      <li>Built-in 2.1 channel speakers, 8-mic array & 48MP auto-focus camera</li>
-      <li>Wireless projection with reverse touch, split-screen & enterprise intelligent platform</li>
-
-    </ul>
-  </div>
-      </div>
-      <div class="grid-item"><img src="https://images.unsplash.com/photo-1581343117330-0104b39ce4c9?w=600" alt="">
-        <h3>Digital & Screens</h3>
-        <h3>Interactive Screen</h3>
-        <p font-weight: light;>
-          <I>65 inch ; All-in-one conference machine • Inspur • IB65GL -B</I>
-        </p>
-
-        <div class="specs">
-    <h4>Info</h4>
-    <ul>
-      <li>Ultra-narrow bezel with anti-glare tempered glass and eye-protection backlight</li>
-      <li>8-core CPU + GPU with Android 11.0 for smooth performance</li>
-      <li>±1mm infrared touch, dual-pen multi-color writing support</li>
-      <li>Built-in 2.1 channel speakers, 8-mic array & 48MP auto-focus camera</li>
-      <li>Wireless projection with reverse touch, split-screen & enterprise intelligent platform</li>
-
-    </ul>
-  </div>
-      </div>
-      <div class="grid-item"><img src="https://plus.unsplash.com/premium_photo-1661780612519-42eabd9a96c9?w=600" alt="">
-        <h3>Photo & Social</h3>
-        <h3>Interactive Screen</h3>
-        <p font-weight: light;>
-          <I>65 inch ; All-in-one conference machine • Inspur • IB65GL -B</I>
-        </p>
-
-        <div class="specs">
-    <h4>Info</h4>
-    <ul>
-      <li>Ultra-narrow bezel with anti-glare tempered glass and eye-protection backlight</li>
-      <li>8-core CPU + GPU with Android 11.0 for smooth performance</li>
-      <li>±1mm infrared touch, dual-pen multi-color writing support</li>
-      <li>Built-in 2.1 channel speakers, 8-mic array & 48MP auto-focus camera</li>
-      <li>Wireless projection with reverse touch, split-screen & enterprise intelligent platform</li>
-
-    </ul>
-  </div>
-      </div>
-      <div class="grid-item"><img src="https://images.unsplash.com/photo-1556761175-4b46a572b786" alt="">
-        <h3>Experiential Touchpoints</h3>
-        <h3>Interactive Screen</h3>
-        <p font-weight: light;>
-          <I>65 inch ; All-in-one conference machine • Inspur • IB65GL -B</I>
-        </p>
-
-        <div class="specs">
-    <h4>Info</h4>
-    <ul>
-      <li>Ultra-narrow bezel with anti-glare tempered glass and eye-protection backlight</li>
-      <li>8-core CPU + GPU with Android 11.0 for smooth performance</li>
-      <li>±1mm infrared touch, dual-pen multi-color writing support</li>
-      <li>Built-in 2.1 channel speakers, 8-mic array & 48MP auto-focus camera</li>
-      <li>Wireless projection with reverse touch, split-screen & enterprise intelligent platform</li>
-
-    </ul>
-  </div>
+      <div class="stats-grid">
+        <div class="stat-item">
+          <h3>500+</h3>
+          <p>Events Branded</p>
+        </div>
+        <div class="stat-item">
+          <h3>98%</h3>
+          <p>Client Satisfaction</p>
+        </div>
+        <div class="stat-item">
+          <h3>50+</h3>
+          <p>Design Projects</p>
+        </div>
+        <div class="stat-item">
+          <h3>24/7</h3>
+          <p>Support Available</p>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- ==================== SERVICES SECTION ==================== -->
+  <section class="services-section">
+    <div class="container">
+      <div class="services-header">
+        <h2>Our Event Branding Services</h2>
+        <p>Comprehensive branding solutions tailored to make your events memorable and impactful</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://images.unsplash.com/photo-1492684223066-81342ee5ff30?w=600&h=400&fit=crop" alt="Venue & Stage" />
+          </div>
+          <div class="service-content">
+            <h3>Venue & Stage</h3>
+            <p>Transform your event space with stunning stage design, backdrop installations, and venue branding that creates an immersive environment for your attendees.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://images.unsplash.com/photo-1533073526757-2c8ca1df9f1c?w=600&h=400&fit=crop" alt="Branded Collateral" />
+          </div>
+          <div class="service-content">
+            <h3>Branded Collateral</h3>
+            <p>Professional design and production of event programs, brochures, badges, lanyards, folders, and all printed materials that reinforce your brand identity.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://images.unsplash.com/photo-1551818255-e6e10975bc17?w=600&h=400&fit=crop" alt="Digital Integration" />
+          </div>
+          <div class="service-content">
+            <h3>Digital Integration</h3>
+            <p>Seamless digital experience including event websites, mobile apps, social media templates, digital signage, and interactive displays for modern engagement.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://images.unsplash.com/photo-1556761175-4b46a572b786?w=600&h=400&fit=crop" alt="Wayfinding & Signage" />
+          </div>
+          <div class="service-content">
+            <h3>Wayfinding & Signage</h3>
+            <p>Strategic directional signage, banners, floor graphics, and wayfinding systems that guide attendees seamlessly while reinforcing your event branding.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?w=600&h=400&fit=crop" alt="Environmental Graphics" />
+          </div>
+          <div class="service-content">
+            <h3>Environmental Graphics</h3>
+            <p>Eye-catching wall graphics, photo opportunities, branded installations, and environmental designs that transform spaces into branded experiences.</p>
+          </div>
+        </div>
+        <div class="service-card">
+          <div class="service-image">
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=600&h=400&fit=crop" alt="Experiential Touch Points" />
+          </div>
+          <div class="service-content">
+            <h3>Experiential Touch Points</h3>
+            <p>Create memorable brand interactions through custom activations, interactive installations, branded giveaways, and experiential marketing opportunities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  
   <section class="easy-process">
     <div class="container">
       <h2>How It Works</h2>
@@ -647,6 +975,111 @@
         <div class="step"><img src="https://cdn-icons-png.flaticon.com/128/4035/4035077.png"><h3>Pre-flight & Production</h3><p>Print specs, color proofs, file QC.</p></div>
         <div class="step"><img src="https://cdn-icons-png.flaticon.com/128/2285/2285485.png"><h3>Deploy</h3><p>Install, screen content load, event-day checks.</p></div>
         <div class="step"><img src="https://cdn-icons-png.flaticon.com/128/11314/11314429.png"><h3>Post-Event</h3><p>Media wall, thank-you creatives, impact deck.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="featured-section" id="projects">
+    <div class="container">
+      <div class="featured-header">
+        <h2>Featured Work</h2>
+        <p>Discover how we've transformed events for leading brands and organizations</p>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&h=600&fit=crop" alt="Tech Summit 2024" />
+          </div>
+          <div class="project-content">
+            <span class="project-tag">Conference Branding</span>
+            <h3>Tech Summit 2024</h3>
+            <p>Complete brand identity and environmental design for 1,000+ attendees including stage design and digital integration.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=800&h=600&fit=crop" alt="Innovation Forum" />
+          </div>
+          <div class="project-content">
+            <span class="project-tag">Corporate Event</span>
+            <h3>Innovation Forum</h3>
+            <p>Conference branding materials and digital presence for global forum showcasing cutting-edge innovations.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800&h=600&fit=crop" alt="Product Launch" />
+          </div>
+          <div class="project-content">
+            <span class="project-tag">Brand Activation</span>
+            <h3>Product Launch</h3>
+            <p>Immersive brand experience with custom signage and interactive displays showcasing new product line.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-image">
+            <img src="https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&h=600&fit=crop" alt="Charity Gala" />
+          </div>
+          <div class="project-content">
+            <span class="project-tag">Social Event</span>
+            <h3>Charity Gala</h3>
+            <p>Elegant branding that elevated the fundraising experience with sophisticated design and ambient lighting.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==================== WHY CHOOSE SECTION ==================== -->
+  <section class="why-choose-section">
+    <div class="container">
+      <div class="why-choose-container">
+        <div class="why-choose-content">
+          <h2>Why Choose Vizibo for Your Event Branding?</h2>
+          <p>We combine creativity, strategy, and flawless execution to deliver branding that resonates with your audience and achieves your goals.</p>
+          
+          <div class="reason-item">
+            <div class="reason-icon">
+              <i class="fas fa-check"></i>
+            </div>
+            <div class="reason-text">
+              <h4>Award-Winning Design Team</h4>
+              <p>Our talented designers bring 50+ industry awards for creativity and excellence in event branding to every project.</p>
+            </div>
+          </div>
+
+          <div class="reason-item">
+            <div class="reason-icon">
+              <i class="fas fa-check"></i>
+            </div>
+            <div class="reason-text">
+              <h4>Full-Service Solutions</h4>
+              <p>From initial concept to on-site installation, we handle every aspect of your event branding so you can focus on what matters.</p>
+            </div>
+          </div>
+
+          <div class="reason-item">
+            <div class="reason-icon">
+              <i class="fas fa-check"></i>
+            </div>
+            <div class="reason-text">
+              <h4>Proven Track Record</h4>
+              <p>500+ successful events and a 98% client satisfaction rate speaks to our commitment to excellence.</p>
+            </div>
+          </div>
+
+          <div class="reason-item">
+            <div class="reason-icon">
+              <i class="fas fa-check"></i>
+            </div>
+            <div class="reason-text">
+              <h4>Scalable & Flexible</h4>
+              <p>Whether it's an intimate gathering or a large-scale conference, we adapt to your needs and deliver outstanding results.</p>
+            </div>
+          </div>
+        </div>
+        <div class="why-choose-image">
+          <img src="https://images.unsplash.com/photo-1591115765373-5207764f72e7?w=800&h=600&fit=crop" alt="Why Choose Vizibo" />
+        </div>
       </div>
     </div>
   </section>
